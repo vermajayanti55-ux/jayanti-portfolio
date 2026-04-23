@@ -54,6 +54,19 @@ module.exports = async function handler(req, res) {
 
     if (!emailjsResponse.ok) {
       console.error('EmailJS API error:', emailjsResponse.status, responseData);
+      console.error('Request body:', JSON.stringify({
+        service_id: process.env.EMAILJS_SERVICE_ID,
+        template_id: process.env.EMAILJS_TEMPLATE_ID,
+        user_id: process.env.EMAILJS_PUBLIC_KEY ? '***' : 'MISSING',
+        private_key: process.env.EMAILJS_PRIVATE_KEY ? '***' : 'MISSING',
+        template_params: {
+          title: 'Portfolio Contact',
+          from_name: from_name.trim(),
+          reply_to: reply_to.trim(),
+          message: message.trim(),
+          time: new Date().toLocaleString(),
+        },
+      }, null, 2));
       return res.status(500).json({ error: 'EmailJS service error' });
     }
 
