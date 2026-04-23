@@ -16,6 +16,12 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid email address' });
   }
 
+  // Check environment variables
+  if (!process.env.EMAILJS_SERVICE_ID || !process.env.EMAILJS_TEMPLATE_ID || !process.env.EMAILJS_PUBLIC_KEY) {
+    console.error('Missing environment variables');
+    return res.status(500).json({ error: 'Server configuration error' });
+  }
+
   try {
     // Call EmailJS API directly (HTTP endpoint)
     const emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
@@ -28,20 +34,30 @@ module.exports = async function handler(req, res) {
         template_id: process.env.EMAILJS_TEMPLATE_ID,
         user_id: process.env.EMAILJS_PUBLIC_KEY,
         template_params: {
+          title: 'Portfolio Contact',
           from_name: from_name.trim(),
           reply_to: reply_to.trim(),
           message: message.trim(),
+          time: new Date().toLocaleString(),
         },
       }),
     });
 
+    let responseData;
+    try {
+      responseData = await emailjsResponse.json();
+    } catch (parseError) {
+      responseData = await emailjsResponse.text();
+    }
+
     if (!emailjsResponse.ok) {
-      throw new Error(`EmailJS API error: ${emailjsResponse.status}`);
+      console.error('EmailJS API error:', emailjsResponse.status, responseData);
+      return res.status(500).json({ error: 'EmailJS service error' });
     }
 
     res.status(200).json({ success: true, message: 'Email sent successfully! Jayanti will get back to you soon.' });
   } catch (error) {
-    console.error('EmailJS error:', error);
+    console.error('Full error:', error);
     res.status(500).json({ error: 'Failed to send email. Please try again.' });
   }
 };
