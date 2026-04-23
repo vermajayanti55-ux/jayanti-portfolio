@@ -33,7 +33,7 @@ module.exports = async function handler(req, res) {
         service_id: process.env.EMAILJS_SERVICE_ID,
         template_id: process.env.EMAILJS_TEMPLATE_ID,
         user_id: process.env.EMAILJS_PUBLIC_KEY,
-        access_token: process.env.EMAILJS_ACCESS_TOKEN,
+        accessToken: process.env.EMAILJS_ACCESS_TOKEN,
         template_params: {
           from_name: from_name.trim(),
           reply_to: reply_to.trim(),
@@ -57,7 +57,7 @@ module.exports = async function handler(req, res) {
         service_id: process.env.EMAILJS_SERVICE_ID,
         template_id: process.env.EMAILJS_TEMPLATE_ID,
         user_id: process.env.EMAILJS_PUBLIC_KEY ? '***' : 'MISSING',
-        access_token: process.env.EMAILJS_ACCESS_TOKEN ? '***' : 'MISSING',
+        accessToken: process.env.EMAILJS_ACCESS_TOKEN ? '***' : 'MISSING',
         template_params: {
           from_name: from_name.trim(),
           reply_to: reply_to.trim(),
