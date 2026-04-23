@@ -17,24 +17,29 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    // Import EmailJS dynamically
-    const emailjs = (await import('@emailjs/browser')).default;
+    // Call EmailJS API directly (HTTP endpoint)
+    const emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        service_id: process.env.EMAILJS_SERVICE_ID,
+        template_id: process.env.EMAILJS_TEMPLATE_ID,
+        user_id: process.env.EMAILJS_PUBLIC_KEY,
+        template_params: {
+          from_name: from_name.trim(),
+          reply_to: reply_to.trim(),
+          message: message.trim(),
+        },
+      }),
+    });
 
-    // Initialize with public key
-    emailjs.init(process.env.EMAILJS_PUBLIC_KEY);
+    if (!emailjsResponse.ok) {
+      throw new Error(`EmailJS API error: ${emailjsResponse.status}`);
+    }
 
-    // Send email
-    const result = await emailjs.send(
-      process.env.EMAILJS_SERVICE_ID,
-      process.env.EMAILJS_TEMPLATE_ID,
-      {
-        from_name: from_name.trim(),
-        reply_to: reply_to.trim(),
-        message: message.trim(),
-      }
-    );
-
-    res.status(200).json({ success: true, message: 'Email sent successfully!' });
+    res.status(200).json({ success: true, message: 'Email sent successfully! Jayanti will get back to you soon.' });
   } catch (error) {
     console.error('EmailJS error:', error);
     res.status(500).json({ error: 'Failed to send email. Please try again.' });
