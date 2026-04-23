@@ -35,7 +35,6 @@ module.exports = async function handler(req, res) {
         user_id: process.env.EMAILJS_PUBLIC_KEY,
         private_key: process.env.EMAILJS_PRIVATE_KEY,
         template_params: {
-          title: 'Portfolio Contact',
           from_name: from_name.trim(),
           reply_to: reply_to.trim(),
           message: message.trim(),
@@ -60,7 +59,6 @@ module.exports = async function handler(req, res) {
         user_id: process.env.EMAILJS_PUBLIC_KEY ? '***' : 'MISSING',
         private_key: process.env.EMAILJS_PRIVATE_KEY ? '***' : 'MISSING',
         template_params: {
-          title: 'Portfolio Contact',
           from_name: from_name.trim(),
           reply_to: reply_to.trim(),
           message: message.trim(),
