@@ -17,7 +17,7 @@ module.exports = async function handler(req, res) {
   }
 
   // Check environment variables
-  if (!process.env.EMAILJS_SERVICE_ID || !process.env.EMAILJS_TEMPLATE_ID || !process.env.EMAILJS_PUBLIC_KEY || !process.env.EMAILJS_ACCESS_TOKEN) {
+  if (!process.env.EMAILJS_SERVICE_ID || !process.env.EMAILJS_TEMPLATE_ID || !process.env.EMAILJS_PUBLIC_KEY || !process.env.EMAILJS_PRIVATE_KEY) {
     console.error('Missing environment variables');
     return res.status(500).json({ error: 'Server configuration error' });
   }
@@ -33,7 +33,7 @@ module.exports = async function handler(req, res) {
         service_id: process.env.EMAILJS_SERVICE_ID,
         template_id: process.env.EMAILJS_TEMPLATE_ID,
         user_id: process.env.EMAILJS_PUBLIC_KEY,
-        accessToken: process.env.EMAILJS_ACCESS_TOKEN,
+        accessToken: process.env.EMAILJS_PRIVATE_KEY,
         template_params: {
           from_name: from_name.trim(),
           reply_to: reply_to.trim(),
@@ -57,7 +57,7 @@ module.exports = async function handler(req, res) {
         service_id: process.env.EMAILJS_SERVICE_ID,
         template_id: process.env.EMAILJS_TEMPLATE_ID,
         user_id: process.env.EMAILJS_PUBLIC_KEY ? '***' : 'MISSING',
-        accessToken: process.env.EMAILJS_ACCESS_TOKEN ? '***' : 'MISSING',
+        accessToken: process.env.EMAILJS_PRIVATE_KEY ? '***' : 'MISSING',
         template_params: {
           from_name: from_name.trim(),
           reply_to: reply_to.trim(),
