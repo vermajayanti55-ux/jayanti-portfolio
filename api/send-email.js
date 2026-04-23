@@ -17,7 +17,7 @@ module.exports = async function handler(req, res) {
   }
 
   // Check environment variables
-  if (!process.env.EMAILJS_SERVICE_ID || !process.env.EMAILJS_TEMPLATE_ID || !process.env.EMAILJS_PRIVATE_KEY) {
+  if (!process.env.EMAILJS_SERVICE_ID || !process.env.EMAILJS_TEMPLATE_ID || !process.env.EMAILJS_PUBLIC_KEY || !process.env.EMAILJS_PRIVATE_KEY) {
     console.error('Missing environment variables');
     return res.status(500).json({ error: 'Server configuration error' });
   }
@@ -32,7 +32,8 @@ module.exports = async function handler(req, res) {
       body: JSON.stringify({
         service_id: process.env.EMAILJS_SERVICE_ID,
         template_id: process.env.EMAILJS_TEMPLATE_ID,
-        user_id: process.env.EMAILJS_PRIVATE_KEY,
+        user_id: process.env.EMAILJS_PUBLIC_KEY,
+        private_key: process.env.EMAILJS_PRIVATE_KEY,
         template_params: {
           title: 'Portfolio Contact',
           from_name: from_name.trim(),
