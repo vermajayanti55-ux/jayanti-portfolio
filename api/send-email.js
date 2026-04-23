@@ -43,11 +43,12 @@ module.exports = async function handler(req, res) {
       }),
     });
 
+    const rawResponse = await emailjsResponse.text();
     let responseData;
     try {
-      responseData = await emailjsResponse.json();
+      responseData = JSON.parse(rawResponse);
     } catch (parseError) {
-      responseData = await emailjsResponse.text();
+      responseData = rawResponse;
     }
 
     if (!emailjsResponse.ok) {
