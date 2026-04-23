@@ -1,0 +1,18 @@
+{
+  "name": "jayanti-verma-portfolio",
+  "version": "1.0.0",
+  "description": "Jayanti Verma's portfolio website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build step required for static HTML'",
+    "start": "vercel start"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.0.0"
+  },
+  "devDependencies": {},
+  "keywords": ["portfolio", "html", "css", "javascript"],
+  "author": "Jayanti Verma",
+  "license": "MIT"
+}

@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jayanti Verma | Amazon Account Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%233B82F6'/><stop offset='100%25' stop-color='%238B5CF6'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' fill='white' font-family='Space Grotesk,sans-serif' font-weight='700' font-size='13'>JV</text></svg>">
+<style>
+  :root {
+    --blue: #3B82F6;
+    --violet: #8B5CF6;
+    --amber: #F59E0B;
+    --cyan: #06B6D4;
+    --purple: #A855F7;
+    --navy: #060612;
+    --card-bg: #0D0D22;
+    --card-border: rgba(255,255,255,0.07);
+    --text: #EEEEFF;
+    --muted: #7878A0;
+    --section-gap: 6rem;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    background: var(--navy);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── CUSTOM SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--blue), var(--violet));
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--cyan), var(--blue)); }
+  * { scrollbar-width: thin; scrollbar-color: var(--violet) var(--navy); }
+
+  /* ── CUSTOM CURSOR ── */
+  * { cursor: none !important; }
+  #cursor-dot {
+    position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--cyan);
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease, width 0.2s, height 0.2s, background 0.2s;
+    box-shadow: 0 0 8px rgba(6,182,212,0.6);
+  }
+  #cursor-ring {
+    position: fixed; top: 0; left: 0; z-index: 9998; pointer-events: none;
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1.5px solid rgba(139,92,246,0.7);
+    transform: translate(-50%, -50%);
+    transition: transform 0.18s ease, width 0.25s, height 0.25s, border-color 0.25s, opacity 0.2s;
+  }
+  body:has(a:hover) #cursor-ring,
+  body:has(button:hover) #cursor-ring { width: 44px; height: 44px; border-color: var(--cyan); opacity: 0.8; }
+  body:has(a:hover) #cursor-dot,
+  body:has(button:hover) #cursor-dot { background: var(--violet); box-shadow: 0 0 12px rgba(139,92,246,0.7); }
+
+
+  .bg-orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.1; }
+  .orb-1 { width: 600px; height: 600px; background: var(--blue); top: -200px; left: -100px; animation: drift1 22s ease-in-out infinite; }
+  .orb-2 { width: 500px; height: 500px; background: var(--violet); bottom: -100px; right: -100px; animation: drift2 28s ease-in-out infinite; }
+  .orb-3 { width: 350px; height: 350px; background: var(--cyan); top: 40%; left: 50%; animation: drift3 32s ease-in-out infinite; }
+  @keyframes drift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(60px,40px)} }
+  @keyframes drift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-50px,-30px)} }
+  @keyframes drift3 { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.15)} }
+
+  .float-icon { position: absolute; opacity: 0; animation: floatUp 30s linear infinite; font-size: 1.1rem; }
+  @keyframes floatUp {
+    0%   { transform: translateY(110vh); opacity: 0; }
+    8%   { opacity: 0.13; }
+    92%  { opacity: 0.07; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 200;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%;
+    background: rgba(6,6,18,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(59,130,246,0.1);
+  }
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem; font-weight: 700;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 0.87rem; font-weight: 500;
+    transition: color 0.25s; position: relative; padding-bottom: 3px;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+    background: var(--blue); border-radius: 2px; transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+  .nav-links a.active { color: var(--text); }
+  .nav-cv { display: none; } /* removed per request */
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; z-index: 210; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(6,6,18,0.97); backdrop-filter: blur(20px);
+    z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 1.8rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--text); text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--blue); }
+
+  /* ── SECTIONS ── */
+  section { position: relative; z-index: 1; }
+  .section-wrap { padding: var(--section-gap) 5%; max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+  .section-eyebrow::before { content: ''; display: block; width: 16px; height: 2px; background: var(--blue); border-radius: 2px; }
+  .section-eyebrow span { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+    font-weight: 700; margin-bottom: 2.5rem;
+    line-height: 1.15; color: var(--text);
+  }
+  .section-title span {
+    background: linear-gradient(135deg, var(--cyan), var(--violet));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  .divider {
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(59,130,246,0.18) 30%, rgba(139,92,246,0.18) 70%, transparent 100%);
+  }
+
+  /* ── HERO ── */
+  #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8rem 5% 5rem; }
+  .hero-inner { max-width: 760px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 50px; padding: 0.38rem 1rem;
+    font-size: 0.76rem; font-weight: 600; color: var(--cyan);
+    margin-bottom: 1.8rem; letter-spacing: 0.07em; text-transform: uppercase;
+  }
+  .hero-badge-dot { width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; animation: blink 2s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+  .hero-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.6rem, 7vw, 5.5rem);
+    font-weight: 700; line-height: 1.05; margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, var(--blue) 45%, var(--violet) 75%, var(--cyan) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-size: 200%; animation: gradientShift 8s ease-in-out infinite;
+  }
+  @keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+  .hero-title { font-size: clamp(0.9rem, 1.8vw, 1.15rem); color: var(--cyan); font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1.3rem; }
+  .hero-intro { max-width: 510px; margin: 0 auto 2.5rem; color: var(--muted); font-size: 0.97rem; line-height: 1.8; }
+
+  .hero-btns { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: transparent; color: var(--text);
+    border: 1.5px solid rgba(59,130,246,0.45);
+    padding: 0.8rem 1.9rem;
+    border-radius: 50px; font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; text-decoration: none; font-family: inherit;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-3px); box-shadow: 0 0 18px rgba(59,130,246,0.3); }
+  .btn-primary:active { transform: scale(0.97); }
+  .btn-outline {
+    background: transparent; color: var(--text);
+    border: 1.5px solid rgba(255,255,255,0.14);
+    padding: 0.8rem 1.9rem; border-radius: 50px;
+    font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; text-decoration: none; font-family: inherit;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-3px); box-shadow: 0 0 18px rgba(6,182,212,0.25); }
+  .btn-outline:active { transform: scale(0.97); }
+  .btn-cv {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: transparent; color: var(--amber);
+    border: 1.5px solid rgba(245,158,11,0.35);
+    padding: 0.8rem 1.9rem; border-radius: 50px;
+    font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; text-decoration: none; font-family: inherit;
+    transition: all 0.2s;
+  }
+  .btn-cv:hover { background: rgba(245,158,11,0.06); border-color: var(--amber); transform: translateY(-3px); box-shadow: 0 0 18px rgba(245,158,11,0.2); }
+  .btn-cv:active { transform: scale(0.97); }
+
+  .hero-stats {
+    display: flex; justify-content: center;
+    margin-top: 4rem; padding-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .stat-item { text-align: center; padding: 0 2.2rem; border-right: 1px solid rgba(255,255,255,0.06); }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1.9rem; font-weight: 700;
+    background: linear-gradient(135deg, var(--amber), var(--blue));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* ── ABOUT ── */
+  .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: start; }
+  .about-text p { color: var(--muted); line-height: 1.85; margin-bottom: 1.1rem; font-size: 0.95rem; }
+  .about-text p strong { color: var(--text); font-weight: 600; }
+  .about-highlight {
+    background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.18);
+    border-left: 3px solid var(--cyan); border-radius: 0 12px 12px 0;
+    padding: 1.1rem 1.3rem; margin-top: 1.5rem;
+  }
+  .about-highlight p { color: var(--cyan); font-weight: 500; margin: 0; font-size: 0.9rem; }
+  .about-cards { display: flex; flex-direction: column; gap: 0.85rem; }
+  .about-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 1.15rem 1.3rem;
+    display: flex; align-items: center; gap: 1rem;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .about-card:hover { transform: translateX(6px); border-color: rgba(59,130,246,0.3); }
+  .about-card-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .about-card h4 { font-weight: 600; font-size: 0.88rem; color: var(--text); }
+  .about-card p { font-size: 0.76rem; color: var(--muted); margin-top: 0.15rem; line-height: 1.5; }
+
+  /* ── EXPERIENCE ── */
+  .exp-timeline { position: relative; padding-left: 1.8rem; }
+  .exp-timeline::before {
+    content: ''; position: absolute; left: 0; top: 12px; bottom: 12px;
+    width: 2px; background: linear-gradient(180deg, var(--blue), var(--violet), transparent);
+    border-radius: 2px;
+  }
+  .exp-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 18px; padding: 2rem; margin-bottom: 1.4rem;
+    position: relative; transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .exp-card::before {
+    content: ''; position: absolute; left: -2.3rem; top: 2.2rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--blue); border: 2px solid var(--navy);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.22);
+  }
+  .exp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(59,130,246,0.1); }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.1rem; }
+  .exp-role { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--text); }
+  .exp-company { color: var(--blue); font-weight: 500; font-size: 0.85rem; margin-top: 0.2rem; }
+  .exp-badge {
+    background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.22);
+    color: var(--cyan); padding: 0.25rem 0.85rem;
+    border-radius: 50px; font-size: 0.7rem; font-weight: 600; white-space: nowrap;
+  }
+  .exp-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .exp-list li { color: var(--muted); font-size: 0.88rem; padding-left: 1.2rem; position: relative; line-height: 1.65; }
+  .exp-list li::before { content: ''; position: absolute; left: 0; top: 0.62rem; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
+
+  /* ── SKILLS ── */
+  .skills-categories { display: flex; flex-direction: column; gap: 2.5rem; }
+  .skill-category-title {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.7rem;
+  }
+  .skill-category-title::after { content: ''; flex: 1; height: 1px; background: var(--card-border); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.85rem; }
+  .skill-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 1.15rem;
+    text-align: center; transition: all 0.3s; cursor: default;
+  }
+  .skill-card:hover { transform: translateY(-5px); border-color: rgba(139,92,246,0.35); box-shadow: 0 8px 22px rgba(139,92,246,0.1); }
+  .skill-icon { font-size: 1.8rem; margin-bottom: 0.55rem; }
+  .skill-name { font-weight: 600; font-size: 0.8rem; color: var(--text); line-height: 1.3; }
+  .skill-bar { height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; margin-top: 0.65rem; overflow: hidden; }
+  .skill-fill { height: 100%; border-radius: 2px; width: 0; transition: width 1.3s cubic-bezier(0.4,0,0.2,1); }
+
+  /* ── PROGRAMS ── */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 1.3rem; }
+  .proj-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 18px; padding: 1.9rem; position: relative;
+    overflow: hidden; transition: all 0.3s;
+  }
+  .proj-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+  .proj-card:nth-child(1)::before { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+  .proj-card:nth-child(2)::before { background: linear-gradient(90deg, var(--blue), var(--violet)); }
+  .proj-card:nth-child(3)::before { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+  .proj-card:nth-child(4)::before { background: linear-gradient(90deg, var(--blue), var(--violet)); }
+  .proj-card:hover { transform: translateY(-6px); box-shadow: 0 14px 38px rgba(0,0,0,0.25); border-color: rgba(255,255,255,0.1); }
+  .proj-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.6rem; font-weight: 700; opacity: 0.05; position: absolute; top: 1rem; right: 1.4rem; color: var(--text); line-height: 1; }
+  .proj-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .proj-title { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
+  .proj-desc { color: var(--muted); font-size: 0.83rem; line-height: 1.65; margin-bottom: 1rem; }
+  .proj-impact {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.18);
+    color: var(--cyan); padding: 0.22rem 0.7rem;
+    border-radius: 50px; font-size: 0.7rem; font-weight: 600;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
+  .testi-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 16px; padding: 1.4rem; transition: all 0.3s;
+  }
+  .testi-card:hover { transform: translateY(-4px); border-color: rgba(139,92,246,0.28); box-shadow: 0 10px 28px rgba(139,92,246,0.08); }
+  .testi-upload {
+    width: 100%; height: 220px;
+    border: 1.5px dashed rgba(255,255,255,0.09);
+    border-radius: 10px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 0.4rem;
+    cursor: pointer; transition: all 0.3s; background: rgba(255,255,255,0.02); overflow: hidden;
+  }
+  .testi-upload:hover { border-color: var(--violet); background: rgba(139,92,246,0.04); }
+  .testi-upload img { width: 100%; height: 100%; object-fit: cover; display: none; }
+  .testi-upload-placeholder { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .testi-upload-placeholder span { font-size: 1.6rem; opacity: 0.3; }
+  .testi-upload-placeholder p { font-size: 0.72rem; color: var(--muted); opacity: 0.5; }
+  .testi-name { font-weight: 700; font-size: 0.88rem; margin-top: 1rem; color: var(--text); }
+  .testi-role { font-size: 0.73rem; color: var(--cyan); margin-top: 0.15rem; }
+  .testi-stars { color: var(--amber); font-size: 0.9rem; margin-top: 0.25rem; letter-spacing: 1px; }
+
+  /* ── LEARNINGS ── */
+  .learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .learn-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 16px; padding: 1.7rem;
+    display: flex; gap: 1.3rem; align-items: flex-start; transition: all 0.3s;
+  }
+  .learn-card:hover { transform: translateY(-4px); border-color: rgba(6,182,212,0.22); box-shadow: 0 10px 26px rgba(6,182,212,0.07); }
+  .learn-num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--cyan); opacity: 0.3; flex-shrink: 0; line-height: 1; margin-top: -2px; }
+  .learn-content h4 { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.45rem; color: var(--text); }
+  .learn-content p { color: var(--muted); font-size: 0.83rem; line-height: 1.65; }
+  .learn-tagline {
+    margin-top: 2.2rem;
+    background: linear-gradient(135deg, rgba(6,182,212,0.06), rgba(139,92,246,0.06));
+    border: 1px solid rgba(6,182,212,0.16); border-radius: 14px; padding: 1.7rem; text-align: center;
+  }
+  .learn-tagline p { font-size: 0.97rem; color: var(--cyan); font-weight: 500; font-style: italic; }
+
+  /* ── YOUTUBE ── */
+  .yt-wrap { display: flex; align-items: stretch; gap: 3.5rem; flex-wrap: wrap; }
+  .yt-info { flex: 1; min-width: 260px; display: flex; flex-direction: column; justify-content: center; }
+  .yt-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    align-self: flex-start;
+    background: rgba(255,0,0,0.08); border: 1px solid rgba(255,0,0,0.22);
+    color: #ff4444; padding: 10px 10px; border-radius: 50px;
+    font-size: 0.73rem; font-weight: 600; margin-bottom: 1.2rem;
+  }
+  .yt-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 0.9rem; color: var(--text); }
+  .yt-desc { color: var(--muted); line-height: 1.75; margin-bottom: 0.9rem; font-size: 0.9rem; }
+  .yt-card {
+    flex: 0 0 340px;
+    background: var(--card-bg); border: 1px solid rgba(245,158,11,0.13);
+    border-radius: 18px; overflow: hidden; transition: all 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .yt-card:hover { border-color: rgba(245,158,11,0.32); box-shadow: 0 10px 26px rgba(245,158,11,0.07); }
+  .yt-logo-area {
+    width: 100%; height: 200px; background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; cursor: pointer; transition: background 0.3s;
+    border-radius: 0; position: relative;
+  }
+  .yt-logo-area:hover { background: rgba(139,92,246,0.04); }
+  .yt-logo-area img { width: 100%; height: 100%; object-fit: cover; display: none; }
+  .yt-logo-placeholder { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .yt-logo-placeholder span { font-size: 1.6rem; opacity: 0.25; }
+  .yt-logo-placeholder p { font-size: 0.7rem; color: var(--muted); opacity: 0.4; }
+  .yt-card-body { padding: 1.6rem; text-align: center; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.35rem; }
+  .yt-channel { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); }
+  .yt-sub { color: var(--muted); font-size: 0.8rem; margin-bottom: 1rem; }
+  .btn-yt {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: linear-gradient(135deg, #cc0000, #ff4444);
+    color: #fff; padding: 0.7rem 1.6rem; border-radius: 50px;
+    font-weight: 600; font-size: 0.86rem; text-decoration: none;
+    transition: all 0.3s; box-shadow: 0 4px 14px rgba(255,0,0,0.22);
+    font-family: inherit;
+  }
+  .btn-yt:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(255,0,0,0.32); }
+
+  /* ── CONTACT ── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 0.9rem; }
+  .contact-intro { color: var(--muted); line-height: 1.75; margin-bottom: 0.5rem; font-size: 0.93rem; }
+  .contact-link {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 13px; padding: 1.05rem 1.3rem;
+    display: flex; align-items: center; gap: 0.9rem;
+    text-decoration: none; color: var(--text); transition: all 0.25s;
+  }
+  .contact-link:hover { border-color: rgba(59,130,246,0.32); transform: translateX(5px); }
+  .contact-link-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .contact-link-label { font-weight: 600; font-size: 0.86rem; }
+  .contact-link small { display: block; color: var(--muted); font-size: 0.73rem; margin-top: 0.1rem; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .form-group input, .form-group textarea {
+    width: 100%; background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 0.82rem 1.1rem;
+    color: var(--text); font-family: inherit; font-size: 0.9rem;
+    transition: border-color 0.25s; outline: none; resize: none;
+  }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--blue); }
+  .form-group textarea { min-height: 110px; }
+
+  /* ── CV BANNER ── */
+  .cv-banner {
+    background: linear-gradient(135deg, rgba(59,130,246,0.07), rgba(139,92,246,0.07));
+    border: 1px solid rgba(59,130,246,0.18); border-radius: 18px;
+    padding: 2.5rem; text-align: center; margin-top: 4.5rem;
+  }
+  .cv-banner h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 0.55rem; color: var(--text); }
+  .cv-banner p { color: var(--muted); font-size: 0.88rem; margin-bottom: 1.4rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2.4rem 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--muted); font-size: 0.8rem;
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  }
+  footer span { background: linear-gradient(90deg, var(--blue), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
+  .footer-tagline { color: var(--muted); font-size: 0.75rem; opacity: 0.65; }
+  .footer-copy { color: var(--muted); font-size: 0.74rem; opacity: 0.45; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .about-grid, .contact-grid, .learn-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links, .nav-cv { display: none; }
+    .hamburger { display: flex; }
+    .yt-card { flex: 1; min-width: 240px; }
+  }
+  @media (max-width: 580px) {
+    :root { --section-gap: 4rem; }
+    .testimonials-grid, .learn-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+    .stat-item { border-right: none; padding: 0 1.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: repeat(2,1fr); }
+  }
+
+  /* ── FADE IN ── */
+  .fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .fade-in.delay-1 { transition-delay: 0.1s; }
+  .fade-in.delay-2 { transition-delay: 0.18s; }
+</style>
+</head>
+<body>
+<!-- CUSTOM CURSOR -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<div class="bg-orbs" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div id="floaters"></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">JV</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Programs</a></li>
+    <li><a href="#testimonials">Feedback</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#cv" class="nav-cv" style="display:none">Download CV</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#projects" onclick="closeMenu()">Programs</a>
+  <a href="#testimonials" onclick="closeMenu()">Feedback</a>
+  <a href="#youtube" onclick="closeMenu()">YouTube</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#cv" onclick="closeMenu()" style="color:var(--amber)">Download CV</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner fade-in">
+    <div class="hero-badge"><div class="hero-badge-dot"></div>Available for Consulting & Collaboration</div>
+    <h1 class="hero-name">Jayanti Verma</h1>
+    <div class="hero-title">Amazon Account Manager · E-commerce Growth Specialist</div>
+    <p class="hero-intro">Helping sellers grow, scale, and succeed on Amazon with data-driven strategies and 2.5+ years of hands-on expertise.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Contact Me</a>
+      <a href="data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyA5IDAgUiAvTWVkaWFCb3ggWyAwIDAgNTk1LjI3NTYgODQxLjg4OTggXSAvUGFyZW50IDggMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9QYWdlcyA4IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKNyAwIG9iago8PAovQXV0aG9yIChcKGFub255bW91c1wpKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYwNDEyMDEzNjA5KzAwJzAwJykgL0NyZWF0b3IgKFwodW5zcGVjaWZpZWRcKSkgL0tleXdvcmRzICgpIC9Nb2REYXRlIChEOjIwMjYwNDEyMDEzNjA5KzAwJzAwJykgL1Byb2R1Y2VyIChSZXBvcnRMYWIgUERGIExpYnJhcnkgLSBcKG9wZW5zb3VyY2VcKSkgCiAgL1N1YmplY3QgKFwodW5zcGVjaWZpZWRcKSkgL1RpdGxlIChcKGFub255bW91c1wpKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0NvdW50IDEgL0tpZHMgWyA1IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKOSAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAyOTgxCj4+CnN0cmVhbQpHYiEjXj4+czlJKDRQRkpvTWBvPSFNUyhNbzxjTHMvLj5wPGFrImBRMDkrYlMqW0ovQCJpPTVmci1tSWJBX0ExW2AoO2tkJEZdZjBxY3BvKVMwakpmcGUxOnA7KnJAXCJraWlCJCs3am4yNS0maE9HZFUoXVwnZ01VOiRmVylJRD9qJWUycDhFLEY0Q0hYISw3KCVBOm9pLDZebDRvRmksQD41OGchQVVOZ2k9aj4xPjwlaipISmxeRTNgcz1AUFJeYGUxblslWCRIck05KERHNFlAWk4mbCJTayImJykhOVRwa3JEVEtCdCxzNjBaXTlIRl1hLlJ1bHI4Z3AlZkxdNExBN1YmX0Z1OjhxTT42cDdCP3ApNnBMKWQpVl5RUGQwcSMoXTQlXyF0LFhLVj4zbjpZPVBbLTJmNlRBUWswL1FFaHNjYTlPS1UpOT0pXj1pQUVKLTZKKmExN24jLFlaVHUqX1NFIWg/U0toOiVFQWNdMFtUQS9KSkE4LTZecm5ZUjhEYkA5c2ooMSMmNSM2M10tS2UrUkdoPjFMKFMoVzQpNSs4O1Y3X0xLX0Q2UiJUL0dIZihoRktcV1ZxckRhJEpGb09IclIjJF9tLTtPYlNPbCNZYzhDY18mODlhQkRHNFl1N1VsVW4xUS5cJlVhNTIpXV9wWlA/YkdNcjEyPGwtU2orUTVwVVRXUy0hYSU/M25jNUFZWGZkMkgrKUlkIk8rYiQhPlxMXSReO09SO1YxQkg6WFRRMCtCSzlQcV1PNCczWl4ocXVuKkdHb0JmSS5VTl9dSmxBR2tRTVVqckMsZ2B0Vy1uOkshbV9hWFthaDcvMCFmL2Q8bSRyYmhmXDotXDtlQnBXNmwqT2xSNzlxUzluQylNSCcwPWRxcERqNDBaP2QoXCxBaFNgU2ZUJD0sQy8/JGJOamsucV06bU9LUl1RXzleaWByUiZFLzkzYUkwa2BUb09GQHIwSmtqLjopKlUual0wOF1uT1NaXj9yNCdtcUw5RGYxWkM5XSNAZjJiZGxITlg4NjUvXkk6JEg6PmlKPkVcTUlBZVFAZEVjcz5gRWBSdWFyNjVRbGRxdGclNXErXTVOal9PWiw4blMwaTM1OGJHVi1iW2FdcT11TVtGSS0oQ1coNSdtUWJRYzFuKW5lMkk5QUJZNyYtMTRzMzZeOCtzJEkrMDY+cWI4aT5ROlxxcj89ck8yRzFIO01CYSVVTVkxPXUlP29wdUpWXi4kUDBIR282L2MoNnVPPj4rQDIlbjpIJHEuWTwoLVVxPyFoMWEraUlCLi1rRC10KF8vS2kwV0osQE0yZFMoJG4qMG0zRkJTcDpIRlllJlpdMkxMQFlwZC8vcTREbmVsdW47bWpQMjJcKEVsJSo3b04mZyRXbE9vWyxRI3JBcDglWV5LK3AnQ0VUMyJWYTJFR2BIbGFpLWViPDs8cjopZUQrRlxDN1JjJE91WiI2VycuJm8zZFdANStVPjliQEwrOittUjtlVl5bKXNdTiVdWipobiJaRDQwYCZKMmJfUnFCRC9zL2RnLk1ALic4LXQjNDAhdV4wXytoNj1xdSdZJTkvWzZHbUd0OlAvdCciVFoiTlljKlpiRSY1T2wpcFtJJkF0LlM2PlszK2YnVFkrVllvJGRMcUhjaCEzcmpMNzA9ZUlPS1BoSHFvMXUsdGpmJDwuVUMoVXUpX3FfQS9FVGN1PSVtWVgrITYkVTQuMW5CJ2AsOS1YVGJBOiVhLHVWWjFNKTNYMz9LNE1SRmY5I1NabCdeNHBjcmdET0hfSTdLN0JAWzxsRjo/ZlsybnUrLC9BTDU/UkQnRzppUiRhYUhHUmBiaW1KKyhjXUA+K0siajxjSm85JWMkOGtkczs/Y1wrO1w3UVUxT2cpJUNhYEB1K01IUmg7XnRPYlBIXzlLKlomM1pKJ2c4Oj0+SDInKE5sQ1hmODxtY2A4NlVbaytOcDBIblI3TEE3Si4zLCVORFVJX3VtcUBmPVU2cz0uSzptLTItWnUzRlRHTk1COF42aStbXVhyO3QzYVBjIUotQWgmQV5rSlwrTlQ3ZTtATUd1R04zRWhrLDAtbk9QX1VCcmEsPm5EcE5rYUVONkJmIWxmPEBDLDJCMT0wUUxUKCY7b2chV0JbQjZOQCEhb2BzL21RYUBdQE1YLXRmSmMnUExbS0xkX3IlL15oNHMmcFtmKEE4czZeRW1cMSNKO1dRTlhqb0dGP24tLU9wJiQySWhAUkVdZm88ZW4taT8tWF8vWFMicXUhJitiI15mW20mZSYvPypmMU1PMzZgbF90TTolWUh0bkVQI3V1JHMsdWFpSGpbYGBxXTxfXVhbWlxTNyRoNE9ROygxIy49XDs8NEttL0NXWkA0WjY3PTdfJFYpImk2MypVT3FyXChyKEkuP0siYl1IUjdlIjVUKGU7S2dnOUZfOlw1OGhNIVJhZ3InRkpENlh0Jz89YlVUKyMiT0cmcEo2Q3UtKTY5Q1xYYmlSSVFEW15FWHAqOk9bb2pAWShoX2kjRiJ1SikxZmVmSClDL2xhKj1DPj88VFtRMlgpcTY+V1EqZV9SLjIjUz9hbWZcIjJiVGhba2xjVGhlTkEvRjBiWFBwYTxuIkZgPzIlPWJHXlJObzwiQ180LzJlWWF0SWdScVNkJWFTITInQ29eLVdSXihySjw+biMqVWdvbF9WQDtdPTw0TTY4SGVyIi8zTG48JmMqQ1VJUCQsZmYxQVtwZTNda2wuMipGc1puIURhTSNkOzRkW008dDNrWnFLOE1NIltFaXNPQzZKTk1tYV01W3VyOl0sPDJNSCw8WkRERz9pOzclJ2VKVERYOitaNTZwQkBZcD9RWnNfJEpKQnFHVm5SJDVyRDNha2ErTkA4SVYzUWJVUExXUG4zbiEyJk43SixWInRfU0oqQSwvMl9GbCgjLjg+c0E2RDw2Y2RqZmZRMUk/UGhBXUstWUFZKUMqYjIuT2c1NzchPU1bQFVONmJJIWgrIzRyTT1xVktmVClsJj1GSC80W3EjcCI/QC0oIlBQO1ghWE8mZ1FPTSk7Py9gMUZLPGM5UnRPMCRKb1tGJForIWF0ckhpVVFIKkhsczYjZElBLUpCUihjSkdeZjhxIShGaSdGaGZkbFpJSCpQZ0kicDZYdC8yOmE5UjVKS0Voc0xSUDUhPG9XOzs+YyFabCQ0WDA7LDIlU3RRbER1JkRPNlsscFs7SjhSTldFQ0NbM2g/PV0xXiZMbTE+LFBYdGEuRSVVP2REcDUmSC1tSWcjOVlcRixBM2RrNSNyI2cyQVQsKUthVE0mOE9aJmAlPm9UPyY0XFBWLD9uOCNzUFpGYkxOSDZEPCtrJSZrV0gnKW1tQ1pqM15uRyw+OHB1PDsyPCNzNS9YLnJoS1koJnRwZTpmQSUsJkAyX1dGJypvZSpqQiNAJFlPJSgnPDZZcjIvP1ddU0ktTWxVZGVYSThdWkJXQTs1PVM9bTRzVGw2ODBCYWVHak11T08kLzdaZytGJEg2PSlZZT9fcy1gZUM0bCEnQVRKOXQsUDtwMClmKVBsMCtsJmZAW2tAYCNOUEtjMzdgNTBYS0RyaktrXUA5QSEnY0xxU0BcTkNCJ01GWiI1WV9UZFM1W2stUSYnXkIzZ15NPGlHOkRrdVtPMkBwamJdayxkYl0sZSVVLUZQciE3bExYQXVaWSpaLVwiNiZESFdsPnNrNFs2aFVGL0xCZmE/TC5OaDBUVVRzIyNjOCotYTBiYTZoJiU2SDhVRF1MNUs/blVzP19uWDZkKXBDJigiUD8nQ3IwaCNfbWdjY0RbIV9XVks1SDREUTIrXyUlUXEvdU5vKTs1a1BoZjxgZF9XXXM0LGxbIT9vLikwb0o9bEM9InUoVjxbRDhTcS1XZSFCRiRUS2g0Q1FLdDJZQ3I5OFJnbWxQQnFyanFsTys9UF1fbE1wXUhbZi1NUWRKKkF+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDEwCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTEyIDAwMDAwIG4gCjAwMDAwMDAyMTkgMDAwMDAgbiAKMDAwMDAwMDMzMSAwMDAwMCBuIAowMDAwMDAwNDQ2IDAwMDAwIG4gCjAwMDAwMDA2NDkgMDAwMDAgbiAKMDAwMDAwMDcxNyAwMDAwMCBuIAowMDAwMDAwOTk3IDAwMDAwIG4gCjAwMDAwMDEwNTYgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8NzNhMDlmYjUzMzJmM2YyNzVhMDFiYzIyYTE0Y2FjMjg+PDczYTA5ZmI1MzMyZjNmMjc1YTAxYmMyMmExNGNhYzI4Pl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA3IDAgUgovUm9vdCA2IDAgUgovU2l6ZSAxMAo+PgpzdGFydHhyZWYKNDEyOAolJUVPRgo=" download="Jayanti_Verma_Resume.pdf" class="btn-cv" id="heroCV">Download CV</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">55+</div><div class="stat-label">Seller Accounts</div></div>
+      <div class="stat-item"><div class="stat-num">2.5+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Amazon Programs</div></div>
+      <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Growth Mindset</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="section-eyebrow"><span>Who I Am</span></div>
+    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>Hi! I'm <strong>Jayanti Verma</strong>, an Amazon Account Manager at <strong>JGS</strong> with <strong>2.5+ years of hands-on experience</strong> managing and scaling Amazon seller accounts across diverse categories.</p>
+        <p>I started my journey as a <strong>Business Developer</strong>, building a strong foundation in client acquisition, relationship management, and market strategy — skills that continue to drive results every day.</p>
+        <p>Currently I manage <strong>55+ active seller accounts</strong>, helping them boost visibility, improve sales performance, and navigate the ever-evolving Amazon ecosystem with confidence and clarity.</p>
+        <p>I'm passionate about leveraging data, creativity, and emerging AI tools to deliver outcomes that genuinely move the needle for sellers.</p>
+        <div class="about-highlight">
+          <p>🤖 Currently exploring AI tools to automate e-commerce workflows and supercharge seller performance.</p>
+        </div>
+      </div>
+      <div class="about-cards fade-in delay-2">
+        <div class="about-card"><div class="about-card-icon">🎯</div><div><h4>Results-Driven</h4><p>Data-backed strategies for measurable, consistent seller growth</p></div></div>
+        <div class="about-card"><div class="about-card-icon">🤝</div><div><h4>Trusted by 55+ Sellers</h4><p>Proven track record of building long-term seller relationships</p></div></div>
+        <div class="about-card"><div class="about-card-icon">📈</div><div><h4>Full Lifecycle Support</h4><p>From onboarding to scaling — I handle it all end-to-end</p></div></div>
+        <div class="about-card"><div class="about-card-icon">🤖</div><div><h4>Future-Ready Mindset</h4><p>Actively adopting AI tools to stay ahead of the curve</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-wrap">
+    <div class="section-eyebrow"><span>Career</span></div>
+    <h2 class="section-title">My <span>Experience</span></h2>
+    <div class="exp-timeline">
+      <div class="exp-card fade-in">
+        <div class="exp-header">
+          <div><div class="exp-role">Amazon Account Manager</div><div class="exp-company">JGS · Full-time</div></div>
+          <div class="exp-badge">2+ Years · Current</div>
+        </div>
+        <ul class="exp-list">
+          <li>Managing a portfolio of <strong>55+ active Amazon seller accounts</strong> across multiple categories</li>
+          <li>Delivered end-to-end listing optimization, FBA management, PPC advertising, and A+ content creation</li>
+          <li>Executed key Amazon programs — Reactivation, NSS, ASCEND, and ABE</li>
+          <li>Improved sales velocity, search visibility, and account health metrics for sellers</li>
+          <li>Created premium Brand Stores, Brand Stories, and A+ Content modules</li>
+          <li>Handled operational issues, deals, coupons, promotions, and account escalations</li>
+          <li>Currently integrating AI tools to improve workflow efficiency and campaign performance</li>
+        </ul>
+      </div>
+      <div class="exp-card fade-in delay-1">
+        <div class="exp-header">
+          <div><div class="exp-role">Business Developer</div><div class="exp-company">JGS · Full-time</div></div>
+          <div class="exp-badge">6 Months</div>
+        </div>
+        <ul class="exp-list">
+          <li>Prospected and onboarded new Amazon sellers to the JGS service platform</li>
+          <li>Built strong client relationships and identified early growth opportunities</li>
+          <li>Provided strategic consultation to help new sellers launch successfully</li>
+          <li>Developed deep foundational knowledge of the Amazon seller ecosystem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-wrap">
+    <div class="section-eyebrow"><span>What I Do</span></div>
+    <h2 class="section-title">Skills & <span>Expertise</span></h2>
+    <div class="skills-categories fade-in">
+
+      <div>
+        <div class="skill-category-title">Content & Listing</div>
+        <div class="skills-grid">
+          <div class="skill-card"><div class="skill-icon">📝</div><div class="skill-name">Listing Optimization</div><div class="skill-bar"><div class="skill-fill" data-width="95" style="background:linear-gradient(90deg,var(--blue),var(--cyan));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">✨</div><div class="skill-name">A+ Content Creation</div><div class="skill-bar"><div class="skill-fill" data-width="94" style="background:linear-gradient(90deg,var(--cyan),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">🏪</div><div class="skill-name">Brand Store Design</div><div class="skill-bar"><div class="skill-fill" data-width="91" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">📖</div><div class="skill-name">Brand Story Writing</div><div class="skill-bar"><div class="skill-fill" data-width="89" style="background:linear-gradient(90deg,var(--blue),var(--purple));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">🔍</div><div class="skill-name">Keyword Research</div><div class="skill-bar"><div class="skill-fill" data-width="90" style="background:linear-gradient(90deg,var(--cyan),var(--blue));"></div></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="skill-category-title">Advertising & Growth</div>
+        <div class="skills-grid">
+          <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-name">PPC Advertising</div><div class="skill-bar"><div class="skill-fill" data-width="88" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">🏷️</div><div class="skill-name">Deals & Promotions</div><div class="skill-bar"><div class="skill-fill" data-width="92" style="background:linear-gradient(90deg,var(--blue),var(--cyan));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">📈</div><div class="skill-name">Data Analysis</div><div class="skill-bar"><div class="skill-fill" data-width="85" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">💡</div><div class="skill-name">Growth Strategy</div><div class="skill-bar"><div class="skill-fill" data-width="91" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">🎯</div><div class="skill-name">Seller Onboarding</div><div class="skill-bar"><div class="skill-fill" data-width="95" style="background:linear-gradient(90deg,var(--violet),var(--cyan));"></div></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="skill-category-title">Operations & Management</div>
+        <div class="skills-grid">
+          <div class="skill-card"><div class="skill-icon">📦</div><div class="skill-name">FBA Management</div><div class="skill-bar"><div class="skill-fill" data-width="90" style="background:linear-gradient(90deg,var(--blue),var(--cyan));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">👔</div><div class="skill-name">Account Management</div><div class="skill-bar"><div class="skill-fill" data-width="96" style="background:linear-gradient(90deg,var(--cyan),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">🛡️</div><div class="skill-name">Account Health</div><div class="skill-bar"><div class="skill-fill" data-width="93" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-name">Seller Central</div><div class="skill-bar"><div class="skill-fill" data-width="97" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">⚙️</div><div class="skill-name">Operational Handling</div><div class="skill-bar"><div class="skill-fill" data-width="87" style="background:linear-gradient(90deg,var(--violet),var(--cyan));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">📋</div><div class="skill-name">Inventory Planning</div><div class="skill-bar"><div class="skill-fill" data-width="84" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">💬</div><div class="skill-name">Communication</div><div class="skill-bar"><div class="skill-fill" data-width="93" style="background:linear-gradient(90deg,var(--cyan),var(--blue));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon">🤖</div><div class="skill-name">AI Tools (Learning)</div><div class="skill-bar"><div class="skill-fill" data-width="72" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROGRAMS -->
+<section id="projects">
+  <div class="section-wrap">
+    <div class="section-eyebrow"><span>Programs & Projects</span></div>
+    <h2 class="section-title">Amazon <span>Programs</span></h2>
+    <div class="projects-grid fade-in">
+      <div class="proj-card"><div class="proj-num">01</div><div class="proj-icon">🔄</div><div class="proj-title">Reactivation Program</div><p class="proj-desc">Reviving inactive and dormant seller accounts back to active status through targeted strategies, compliance fixes, and structured growth planning.</p><div class="proj-impact">⚡ Revived 100+ dormant accounts</div></div>
+      <div class="proj-card"><div class="proj-num">02</div><div class="proj-icon">🌱</div><div class="proj-title">NSS Program</div><p class="proj-desc">New Seller Success — Guiding newly onboarded Amazon sellers through their critical first months with hands-on support and growth tactics.</p><div class="proj-impact">🚀 Accelerated new seller launches</div></div>
+      <div class="proj-card"><div class="proj-num">03</div><div class="proj-icon">🚀</div><div class="proj-title">ASCEND Program</div><p class="proj-desc">Advisory program designed to help mid-tier sellers scale to the next level with strategic roadmaps, expert guidance, and performance benchmarking.</p><div class="proj-impact">📈 Scaled mid-tier seller revenues</div></div>
+      <div class="proj-card"><div class="proj-num">04</div><div class="proj-icon">💼</div><div class="proj-title">ABE Program</div><p class="proj-desc">Amazon Business Expert — In-house initiative delivering deep business insights and specialized solutions for high-value, enterprise-level accounts.</p><div class="proj-impact">🏆 High-value enterprise accounts</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-wrap">
+    <div class="section-eyebrow"><span>Social Proof</span></div>
+    <h2 class="section-title">What Sellers <span>Say About Me</span></h2>
+    <p style="color:var(--muted);margin-bottom:2rem;max-width:540px;font-size:0.9rem;line-height:1.7;">Real feedback from real sellers. Click any card to upload a screenshot — WhatsApp chats, emails, or any written appreciation.</p>
+    <div class="testimonials-grid fade-in">
+      <div class="testi-card"><div class="testi-upload" onclick="triggerUpload(this)"><img src="" alt=""><div class="testi-upload-placeholder"><span>📸</span><p>Click to add screenshot</p></div><input type="file" accept="image/*" style="display:none" onchange="previewImage(this)"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload" onclick="triggerUpload(this)"><img src="" alt=""><div class="testi-upload-placeholder"><span>📸</span><p>Click to add screenshot</p></div><input type="file" accept="image/*" style="display:none" onchange="previewImage(this)"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload" onclick="triggerUpload(this)"><img src="" alt=""><div class="testi-upload-placeholder"><span>📸</span><p>Click to add screenshot</p></div><input type="file" accept="image/*" style="display:none" onchange="previewImage(this)"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload" onclick="triggerUpload(this)"><img src="" alt=""><div class="testi-upload-placeholder"><span>📸</span><p>Click to add screenshot</p></div><input type="file" accept="image/*" style="display:none" onchange="previewImage(this)"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload" onclick="triggerUpload(this)"><img src="" alt=""><div class="testi-upload-placeholder"><span>📸</span><p>Click to add screenshot</p></div><input type="file" accept="image/*" style="display:none" onchange="previewImage(this)"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LEARNINGS -->
+<section id="learnings">
+  <div class="section-wrap">
+    <div class="section-eyebrow"><span>Always Growing</span></div>
+    <h2 class="section-title">Current <span>Learnings</span></h2>
+    <div class="learn-grid fade-in">
+      <div class="learn-card"><div class="learn-num">01</div><div class="learn-content"><h4>AI Tools for Productivity</h4><p>Learning cutting-edge AI tools to automate repetitive tasks, generate insights faster, and improve overall workflow efficiency.</p></div></div>
+      <div class="learn-card"><div class="learn-num">02</div><div class="learn-content"><h4>AI in E-commerce</h4><p>Exploring how AI can revolutionize listing optimization, ad targeting, demand forecasting, and customer data analysis.</p></div></div>
+      <div class="learn-card"><div class="learn-num">03</div><div class="learn-content"><h4>Advanced PPC Strategies</h4><p>Deepening expertise in Amazon Advertising with automated bidding strategies and AI-assisted campaign optimization.</p></div></div>
+      <div class="learn-card"><div class="learn-num">04</div><div class="learn-content"><h4>Data-Driven Decisions</h4><p>Leveraging advanced analytics and seller data to craft smarter strategies and deliver consistently better results.</p></div></div>
+    </div>
+    <div class="learn-tagline fade-in">
+      <p>🔮 "Continuously upgrading my skills to stay ahead in the e-commerce space"</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- YOUTUBE -->
+<section id="youtube">
+  <div class="section-wrap">
+    <div class="section-eyebrow"><span>Content Creation</span></div>
+    <h2 class="section-title">My <span>YouTube Channel</span></h2>
+    <div class="yt-wrap fade-in">
+      <div class="yt-info">
+        <div class="yt-badge">▶ YouTube Creator</div>
+        <div class="yt-title">E-commerce Insights & Amazon Tips</div>
+        <p class="yt-desc">I share practical insights, tips, and strategies about Amazon and e-commerce on my YouTube channel — helping sellers and aspiring account managers navigate the platform with confidence.</p>
+        <p class="yt-desc">From listing hacks to PPC tips, my content is rooted in real-world experience managing 55+ seller accounts.</p>
+      </div>
+      <div class="yt-card">
+        <div class="yt-logo-area" onclick="triggerYTLogo(this)">
+          <img src="" alt="Channel Logo" id="ytLogoImg">
+          <div class="yt-logo-placeholder"><span>🖼️</span><p>Click to add channel logo</p></div>
+          <input type="file" accept="image/*" id="ytLogoInput" style="display:none" onchange="previewYTLogo(this)">
+        </div>
+        <div class="yt-card-body">
+          <div class="yt-channel">@JayantiiVerma</div>
+          <div class="yt-sub">E-commerce • Amazon • Growth Tips</div>
+          <a href="https://www.youtube.com/@JayantiiVerma" target="_blank" class="btn-yt">▶ Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-eyebrow"><span>Get In Touch</span></div>
+    <h2 class="section-title">Let's <span>Connect</span></h2>
+    <div class="contact-grid fade-in">
+      <div class="contact-info">
+        <p class="contact-intro">Have a project in mind or want to discuss how I can help your Amazon business grow? I'd love to hear from you.</p>
+        <a href="https://www.linkedin.com/in/jayanti-verma" target="_blank" class="contact-link">
+          <span class="contact-link-icon">💼</span>
+          <div><span class="contact-link-label">LinkedIn</span><small>linkedin.com/in/jayanti-verma</small></div>
+        </a>
+        <a href="https://www.youtube.com/@JayantiiVerma" target="_blank" class="contact-link">
+          <span class="contact-link-icon">📺</span>
+          <div><span class="contact-link-label">YouTube</span><small>@JayantiiVerma</small></div>
+        </a>
+        <div class="contact-link" style="cursor:default;">
+          <span class="contact-link-icon">📍</span>
+          <div><span class="contact-link-label">Location</span><small>India · Available Remotely</small></div>
+        </div>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="form-group"><label>Your Name</label><input type="text" name="from_name" placeholder="Enter your name" required></div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="reply_to" id="emailInput" placeholder="your@email.com" required>
+          <div id="emailError" style="display:none; color:#ef4444; font-size:0.75rem; margin-top:0.3rem;">⚠ Please enter a valid email address.</div>
+        </div>
+        <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell me about your Amazon business or how I can help..."></textarea></div>
+        <button type="submit" class="btn-primary" style="width:100%;font-size:0.93rem;padding:0.92rem;justify-content:center;display:flex;align-items:center;gap:0.5rem;border-radius:10px;">Send Message 🚀</button>
+        <div id="formStatus" style="margin-top:0.9rem; font-size:0.85rem; text-align:center; min-height:1.2rem;"></div>
+      </form>
+    </div>
+
+    <!-- CV BANNER -->
+    <div class="cv-banner fade-in" id="cv">
+      <h3>📄 Download My CV</h3>
+      <p>Get a complete overview of my experience, skills, and Amazon expertise in one document.</p>
+      <a href="data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyA5IDAgUiAvTWVkaWFCb3ggWyAwIDAgNTk1LjI3NTYgODQxLjg4OTggXSAvUGFyZW50IDggMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9QYWdlcyA4IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKNyAwIG9iago8PAovQXV0aG9yIChcKGFub255bW91c1wpKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYwNDEyMDEzNjA5KzAwJzAwJykgL0NyZWF0b3IgKFwodW5zcGVjaWZpZWRcKSkgL0tleXdvcmRzICgpIC9Nb2REYXRlIChEOjIwMjYwNDEyMDEzNjA5KzAwJzAwJykgL1Byb2R1Y2VyIChSZXBvcnRMYWIgUERGIExpYnJhcnkgLSBcKG9wZW5zb3VyY2VcKSkgCiAgL1N1YmplY3QgKFwodW5zcGVjaWZpZWRcKSkgL1RpdGxlIChcKGFub255bW91c1wpKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0NvdW50IDEgL0tpZHMgWyA1IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKOSAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAyOTgxCj4+CnN0cmVhbQpHYiEjXj4+czlJKDRQRkpvTWBvPSFNUyhNbzxjTHMvLj5wPGFrImBRMDkrYlMqW0ovQCJpPTVmci1tSWJBX0ExW2AoO2tkJEZdZjBxY3BvKVMwakpmcGUxOnA7KnJAXCJraWlCJCs3am4yNS0maE9HZFUoXVwnZ01VOiRmVylJRD9qJWUycDhFLEY0Q0hYISw3KCVBOm9pLDZebDRvRmksQD41OGchQVVOZ2k9aj4xPjwlaipISmxeRTNgcz1AUFJeYGUxblslWCRIck05KERHNFlAWk4mbCJTayImJykhOVRwa3JEVEtCdCxzNjBaXTlIRl1hLlJ1bHI4Z3AlZkxdNExBN1YmX0Z1OjhxTT42cDdCP3ApNnBMKWQpVl5RUGQwcSMoXTQlXyF0LFhLVj4zbjpZPVBbLTJmNlRBUWswL1FFaHNjYTlPS1UpOT0pXj1pQUVKLTZKKmExN24jLFlaVHUqX1NFIWg/U0toOiVFQWNdMFtUQS9KSkE4LTZecm5ZUjhEYkA5c2ooMSMmNSM2M10tS2UrUkdoPjFMKFMoVzQpNSs4O1Y3X0xLX0Q2UiJUL0dIZihoRktcV1ZxckRhJEpGb09IclIjJF9tLTtPYlNPbCNZYzhDY18mODlhQkRHNFl1N1VsVW4xUS5cJlVhNTIpXV9wWlA/YkdNcjEyPGwtU2orUTVwVVRXUy0hYSU/M25jNUFZWGZkMkgrKUlkIk8rYiQhPlxMXSReO09SO1YxQkg6WFRRMCtCSzlQcV1PNCczWl4ocXVuKkdHb0JmSS5VTl9dSmxBR2tRTVVqckMsZ2B0Vy1uOkshbV9hWFthaDcvMCFmL2Q8bSRyYmhmXDotXDtlQnBXNmwqT2xSNzlxUzluQylNSCcwPWRxcERqNDBaP2QoXCxBaFNgU2ZUJD0sQy8/JGJOamsucV06bU9LUl1RXzleaWByUiZFLzkzYUkwa2BUb09GQHIwSmtqLjopKlUual0wOF1uT1NaXj9yNCdtcUw5RGYxWkM5XSNAZjJiZGxITlg4NjUvXkk6JEg6PmlKPkVcTUlBZVFAZEVjcz5gRWBSdWFyNjVRbGRxdGclNXErXTVOal9PWiw4blMwaTM1OGJHVi1iW2FdcT11TVtGSS0oQ1coNSdtUWJRYzFuKW5lMkk5QUJZNyYtMTRzMzZeOCtzJEkrMDY+cWI4aT5ROlxxcj89ck8yRzFIO01CYSVVTVkxPXUlP29wdUpWXi4kUDBIR282L2MoNnVPPj4rQDIlbjpIJHEuWTwoLVVxPyFoMWEraUlCLi1rRC10KF8vS2kwV0osQE0yZFMoJG4qMG0zRkJTcDpIRlllJlpdMkxMQFlwZC8vcTREbmVsdW47bWpQMjJcKEVsJSo3b04mZyRXbE9vWyxRI3JBcDglWV5LK3AnQ0VUMyJWYTJFR2BIbGFpLWViPDs8cjopZUQrRlxDN1JjJE91WiI2VycuJm8zZFdANStVPjliQEwrOittUjtlVl5bKXNdTiVdWipobiJaRDQwYCZKMmJfUnFCRC9zL2RnLk1ALic4LXQjNDAhdV4wXytoNj1xdSdZJTkvWzZHbUd0OlAvdCciVFoiTlljKlpiRSY1T2wpcFtJJkF0LlM2PlszK2YnVFkrVllvJGRMcUhjaCEzcmpMNzA9ZUlPS1BoSHFvMXUsdGpmJDwuVUMoVXUpX3FfQS9FVGN1PSVtWVgrITYkVTQuMW5CJ2AsOS1YVGJBOiVhLHVWWjFNKTNYMz9LNE1SRmY5I1NabCdeNHBjcmdET0hfSTdLN0JAWzxsRjo/ZlsybnUrLC9BTDU/UkQnRzppUiRhYUhHUmBiaW1KKyhjXUA+K0siajxjSm85JWMkOGtkczs/Y1wrO1w3UVUxT2cpJUNhYEB1K01IUmg7XnRPYlBIXzlLKlomM1pKJ2c4Oj0+SDInKE5sQ1hmODxtY2A4NlVbaytOcDBIblI3TEE3Si4zLCVORFVJX3VtcUBmPVU2cz0uSzptLTItWnUzRlRHTk1COF42aStbXVhyO3QzYVBjIUotQWgmQV5rSlwrTlQ3ZTtATUd1R04zRWhrLDAtbk9QX1VCcmEsPm5EcE5rYUVONkJmIWxmPEBDLDJCMT0wUUxUKCY7b2chV0JbQjZOQCEhb2BzL21RYUBdQE1YLXRmSmMnUExbS0xkX3IlL15oNHMmcFtmKEE4czZeRW1cMSNKO1dRTlhqb0dGP24tLU9wJiQySWhAUkVdZm88ZW4taT8tWF8vWFMicXUhJitiI15mW20mZSYvPypmMU1PMzZgbF90TTolWUh0bkVQI3V1JHMsdWFpSGpbYGBxXTxfXVhbWlxTNyRoNE9ROygxIy49XDs8NEttL0NXWkA0WjY3PTdfJFYpImk2MypVT3FyXChyKEkuP0siYl1IUjdlIjVUKGU7S2dnOUZfOlw1OGhNIVJhZ3InRkpENlh0Jz89YlVUKyMiT0cmcEo2Q3UtKTY5Q1xYYmlSSVFEW15FWHAqOk9bb2pAWShoX2kjRiJ1SikxZmVmSClDL2xhKj1DPj88VFtRMlgpcTY+V1EqZV9SLjIjUz9hbWZcIjJiVGhba2xjVGhlTkEvRjBiWFBwYTxuIkZgPzIlPWJHXlJObzwiQ180LzJlWWF0SWdScVNkJWFTITInQ29eLVdSXihySjw+biMqVWdvbF9WQDtdPTw0TTY4SGVyIi8zTG48JmMqQ1VJUCQsZmYxQVtwZTNda2wuMipGc1puIURhTSNkOzRkW008dDNrWnFLOE1NIltFaXNPQzZKTk1tYV01W3VyOl0sPDJNSCw8WkRERz9pOzclJ2VKVERYOitaNTZwQkBZcD9RWnNfJEpKQnFHVm5SJDVyRDNha2ErTkA4SVYzUWJVUExXUG4zbiEyJk43SixWInRfU0oqQSwvMl9GbCgjLjg+c0E2RDw2Y2RqZmZRMUk/UGhBXUstWUFZKUMqYjIuT2c1NzchPU1bQFVONmJJIWgrIzRyTT1xVktmVClsJj1GSC80W3EjcCI/QC0oIlBQO1ghWE8mZ1FPTSk7Py9gMUZLPGM5UnRPMCRKb1tGJForIWF0ckhpVVFIKkhsczYjZElBLUpCUihjSkdeZjhxIShGaSdGaGZkbFpJSCpQZ0kicDZYdC8yOmE5UjVKS0Voc0xSUDUhPG9XOzs+YyFabCQ0WDA7LDIlU3RRbER1JkRPNlsscFs7SjhSTldFQ0NbM2g/PV0xXiZMbTE+LFBYdGEuRSVVP2REcDUmSC1tSWcjOVlcRixBM2RrNSNyI2cyQVQsKUthVE0mOE9aJmAlPm9UPyY0XFBWLD9uOCNzUFpGYkxOSDZEPCtrJSZrV0gnKW1tQ1pqM15uRyw+OHB1PDsyPCNzNS9YLnJoS1koJnRwZTpmQSUsJkAyX1dGJypvZSpqQiNAJFlPJSgnPDZZcjIvP1ddU0ktTWxVZGVYSThdWkJXQTs1PVM9bTRzVGw2ODBCYWVHak11T08kLzdaZytGJEg2PSlZZT9fcy1gZUM0bCEnQVRKOXQsUDtwMClmKVBsMCtsJmZAW2tAYCNOUEtjMzdgNTBYS0RyaktrXUA5QSEnY0xxU0BcTkNCJ01GWiI1WV9UZFM1W2stUSYnXkIzZ15NPGlHOkRrdVtPMkBwamJdayxkYl0sZSVVLUZQciE3bExYQXVaWSpaLVwiNiZESFdsPnNrNFs2aFVGL0xCZmE/TC5OaDBUVVRzIyNjOCotYTBiYTZoJiU2SDhVRF1MNUs/blVzP19uWDZkKXBDJigiUD8nQ3IwaCNfbWdjY0RbIV9XVks1SDREUTIrXyUlUXEvdU5vKTs1a1BoZjxgZF9XXXM0LGxbIT9vLikwb0o9bEM9InUoVjxbRDhTcS1XZSFCRiRUS2g0Q1FLdDJZQ3I5OFJnbWxQQnFyanFsTys9UF1fbE1wXUhbZi1NUWRKKkF+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDEwCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTEyIDAwMDAwIG4gCjAwMDAwMDAyMTkgMDAwMDAgbiAKMDAwMDAwMDMzMSAwMDAwMCBuIAowMDAwMDAwNDQ2IDAwMDAwIG4gCjAwMDAwMDA2NDkgMDAwMDAgbiAKMDAwMDAwMDcxNyAwMDAwMCBuIAowMDAwMDAwOTk3IDAwMDAwIG4gCjAwMDAwMDEwNTYgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8NzNhMDlmYjUzMzJmM2YyNzVhMDFiYzIyYTE0Y2FjMjg+PDczYTA5ZmI1MzMyZjNmMjc1YTAxYmMyMmExNGNhYzI4Pl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA3IDAgUgovUm9vdCA2IDAgUgovU2l6ZSAxMAo+PgpzdGFydHhyZWYKNDEyOAolJUVPRgo=" download="Jayanti_Verma_Resume.pdf" class="btn-cv">Download CV / Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Crafted with ❤️ by <span>Jayanti Verma</span></p>
+  <p class="footer-tagline">Amazon Account Manager · E-commerce Growth Specialist · AI Enthusiast</p>
+  <p class="footer-copy">© 2025 All rights reserved.</p>
+</footer>
+
+<!-- EmailJS SDK (for local testing only) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // ── Custom Cursor
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animCursor() {
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+
+  // ── Floating icons
+  const icons = ['🛒','📦','📈','💰','⭐','🚀','📊','🎯'];
+  const container = document.getElementById('floaters');
+  for (let i = 0; i < 8; i++) {
+    const el = document.createElement('div');
+    el.className = 'float-icon';
+    el.textContent = icons[i % icons.length];
+    el.style.left = (8 + i * 11.5) + 'vw';
+    el.style.animationDuration = (28 + i * 3) + 's';
+    el.style.animationDelay = (i * 4.5) + 's';
+    container.appendChild(el);
+  }
+
+  // ── Hamburger
+  function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+  }
+  function closeMenu() {
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── Scroll spy
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
+    navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  }, { passive: true });
+
+  // ── Fade-in + scroll-triggered skill bars
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        e.target.querySelectorAll('.skill-fill[data-width]').forEach(bar => {
+          setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 100);
+        });
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelector('#hero .fade-in').classList.add('visible');
+
+  // ── Testimonial image upload
+  function triggerUpload(card) { card.querySelector('input[type="file"]').click(); }
+  function previewImage(input) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        const wrap = input.closest('.testi-upload');
+        const img = wrap.querySelector('img');
+        img.src = e.target.result; img.style.display = 'block';
+        const ph = wrap.querySelector('.testi-upload-placeholder');
+        if (ph) ph.style.display = 'none';
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  // ── YouTube logo upload
+  function triggerYTLogo(area) { document.getElementById('ytLogoInput').click(); }
+  function previewYTLogo(input) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = document.getElementById('ytLogoImg');
+        img.src = e.target.result; img.style.display = 'block';
+        const ph = document.querySelector('.yt-logo-placeholder');
+        if (ph) ph.style.display = 'none';
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  // ── CV download is live (PDF embedded as base64)
+
+  // ── Email validation + EmailJS integration ( Will be removed before pushing it to GitHub)
+  const EMAILJS_PUBLIC_KEY  = '';
+  const EMAILJS_SERVICE_ID  = '';
+  const EMAILJS_TEMPLATE_ID = '';
+
+  const contactForm = document.getElementById('contactForm');
+  const emailInput  = document.getElementById('emailInput');
+  const emailError  = document.getElementById('emailError');
+  const formStatus  = document.getElementById('formStatus');
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  }
+
+  emailInput.addEventListener('input', () => {
+    if (emailInput.value && !isValidEmail(emailInput.value)) {
+      emailInput.style.borderColor = '#ef4444';
+      emailError.style.display = 'block';
+    } else {
+      emailInput.style.borderColor = '';
+      emailError.style.display = 'none';
+    }
+  });
+
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    if (!isValidEmail(email)) {
+      emailInput.style.borderColor = '#ef4444';
+      emailError.style.display = 'block';
+      emailInput.focus();
+      return;
+    }
+
+    const btn = contactForm.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    formStatus.textContent = '';
+
+    // Check if running locally (for development)
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+    if (isLocal) {
+      // Use client-side EmailJS for local testing
+      try {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm);
+        formStatus.textContent = 'Message sent! Jayanti will get back to you soon.';
+        formStatus.style.color = 'var(--cyan)';
+        contactForm.reset();
+      } catch (err) {
+        console.error('EmailJS error:', err);
+        formStatus.textContent = 'Something went wrong. Please try again.';
+        formStatus.style.color = '#ef4444';
+      }
+    } else {
+      // Use API for production (Vercel)
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            from_name: formData.get('from_name'),
+            reply_to: formData.get('reply_to'),
+            message: formData.get('message'),
+          }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          formStatus.textContent = result.message;
+          formStatus.style.color = 'var(--cyan)';
+          contactForm.reset();
+        } else {
+          formStatus.textContent = result.error;
+          formStatus.style.color = '#ef4444';
+        }
+      } catch (err) {
+        console.error('Fetch error:', err);
+        formStatus.textContent = 'Something went wrong. Please try again.';
+        formStatus.style.color = '#ef4444';
+      }
+    }
+
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  });
+</script>
+</body>
+</html>
