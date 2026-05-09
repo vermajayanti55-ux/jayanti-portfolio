@@ -6,6 +6,7 @@
 <title>Jayanti Verma | Amazon Account Manager</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%233B82F6'/><stop offset='100%25' stop-color='%238B5CF6'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' fill='white' font-family='Space Grotesk,sans-serif' font-weight='700' font-size='13'>JV</text></svg>">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
 <style>
   :root {
     --blue: #3B82F6;
@@ -298,6 +299,12 @@
   }
   .skill-card:hover { transform: translateY(-5px); border-color: rgba(139,92,246,0.35); box-shadow: 0 8px 22px rgba(139,92,246,0.1); }
   .skill-icon { font-size: 1.8rem; margin-bottom: 0.55rem; }
+  .skill-card i {
+    background: linear-gradient(135deg, #22d3ee, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
   .skill-name { font-weight: 600; font-size: 0.8rem; color: var(--text); line-height: 1.3; }
   .skill-bar { height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; margin-top: 0.65rem; overflow: hidden; }
   .skill-fill { height: 100%; border-radius: 2px; width: 0; transition: width 1.3s cubic-bezier(0.4,0,0.2,1); }
@@ -317,6 +324,12 @@
   .proj-card:hover { transform: translateY(-6px); box-shadow: 0 14px 38px rgba(0,0,0,0.25); border-color: rgba(255,255,255,0.1); }
   .proj-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.6rem; font-weight: 700; opacity: 0.05; position: absolute; top: 1rem; right: 1.4rem; color: var(--text); line-height: 1; }
   .proj-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .proj-card i {
+    background: linear-gradient(135deg, #22d3ee, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
   .proj-title { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
   .proj-desc { color: var(--muted); font-size: 0.83rem; line-height: 1.65; margin-bottom: 1rem; }
   .proj-impact {
@@ -425,7 +438,9 @@
   .contact-link-icon { font-size: 1.3rem; flex-shrink: 0; }
   .contact-link-label { font-weight: 600; font-size: 0.86rem; }
   .contact-link small { display: block; color: var(--muted); font-size: 0.73rem; margin-top: 0.1rem; }
-  .form-group { margin-bottom: 1rem; }
+  .ph-linkedin-logo { color: #0A66C2; }
+  .ph-youtube-logo { color: #FF0000; }
+  .ph-map-pin { color: #a78bfa; }
   .form-group label { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.1em; }
   .form-group input, .form-group textarea {
     width: 100%; background: var(--card-bg); border: 1px solid var(--card-border);
@@ -555,14 +570,14 @@
         <p>Currently I manage <strong>55+ active seller accounts</strong>, helping them boost visibility, improve sales performance, and navigate the ever-evolving Amazon ecosystem with confidence and clarity.</p>
         <p>I'm passionate about leveraging data, creativity, and emerging AI tools to deliver outcomes that genuinely move the needle for sellers.</p>
         <div class="about-highlight">
-          <p>🤖 Currently exploring AI tools to automate e-commerce workflows and supercharge seller performance.</p>
+          <p><i class="ph-duotone ph-robot" style="font-size: 1.1rem; color: #a78bfa; --ph-duotone-opacity: 0.3;"></i> Currently exploring AI tools to automate e-commerce workflows and supercharge seller performance.</p>
         </div>
       </div>
       <div class="about-cards fade-in delay-2">
-        <div class="about-card"><div class="about-card-icon">🎯</div><div><h4>Results-Driven</h4><p>Data-backed strategies for measurable, consistent seller growth</p></div></div>
-        <div class="about-card"><div class="about-card-icon">🤝</div><div><h4>Trusted by 55+ Sellers</h4><p>Proven track record of building long-term seller relationships</p></div></div>
-        <div class="about-card"><div class="about-card-icon">📈</div><div><h4>Full Lifecycle Support</h4><p>From onboarding to scaling — I handle it all end-to-end</p></div></div>
-        <div class="about-card"><div class="about-card-icon">🤖</div><div><h4>Future-Ready Mindset</h4><p>Actively adopting AI tools to stay ahead of the curve</p></div></div>
+        <div class="about-card"><div class="about-card-icon"><i class="ph-duotone ph-target" style="font-size: 2rem; color: #ef4444; --ph-duotone-opacity: 0.3;"></i></div><div><h4>Results-Driven</h4><p>Data-backed strategies for measurable, consistent seller growth</p></div></div>
+        <div class="about-card"><div class="about-card-icon"><i class="ph-duotone ph-handshake" style="font-size: 2rem; color: #facc15; --ph-duotone-opacity: 0.3;"></i></div><div><h4>Trusted by 55+ Sellers</h4><p>Proven track record of building long-term seller relationships</p></div></div>
+        <div class="about-card"><div class="about-card-icon"><i class="ph-duotone ph-arrows-clockwise" style="font-size: 2rem; color: #60a5fa; --ph-duotone-opacity: 0.3;"></i></div><div><h4>Full Lifecycle Support</h4><p>From onboarding to scaling — I handle it all end-to-end</p></div></div>
+        <div class="about-card"><div class="about-card-icon"><i class="ph-duotone ph-robot" style="font-size: 2rem; color: #a78bfa; --ph-duotone-opacity: 0.3;"></i></div><div><h4>Future-Ready Mindset</h4><p>Actively adopting AI tools to stay ahead of the curve</p></div></div>
       </div>
     </div>
   </div>
@@ -619,36 +634,36 @@
       <div>
         <div class="skill-category-title">Content & Listing</div>
         <div class="skills-grid">
-          <div class="skill-card"><div class="skill-icon">📝</div><div class="skill-name">Listing Optimization</div><div class="skill-bar"><div class="skill-fill" data-width="95" style="background:linear-gradient(90deg,var(--blue),var(--cyan));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">✨</div><div class="skill-name">A+ Content Creation</div><div class="skill-bar"><div class="skill-fill" data-width="94" style="background:linear-gradient(90deg,var(--cyan),var(--violet));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">🏪</div><div class="skill-name">Brand Store Design</div><div class="skill-bar"><div class="skill-fill" data-width="91" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">📖</div><div class="skill-name">Brand Story Writing</div><div class="skill-bar"><div class="skill-fill" data-width="89" style="background:linear-gradient(90deg,var(--blue),var(--purple));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">🔍</div><div class="skill-name">Keyword Research</div><div class="skill-bar"><div class="skill-fill" data-width="90" style="background:linear-gradient(90deg,var(--cyan),var(--blue));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-list-checks"></i></div><div class="skill-name">Listing Optimization</div><div class="skill-bar"><div class="skill-fill" data-width="95" style="background:linear-gradient(90deg,var(--blue),var(--cyan));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-layout"></i></div><div class="skill-name">A+ Content Creation</div><div class="skill-bar"><div class="skill-fill" data-width="94" style="background:linear-gradient(90deg,var(--cyan),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-storefront"></i></div><div class="skill-name">Brand Store Design</div><div class="skill-bar"><div class="skill-fill" data-width="91" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-book-open"></i></div><div class="skill-name">Brand Story Writing</div><div class="skill-bar"><div class="skill-fill" data-width="89" style="background:linear-gradient(90deg,var(--blue),var(--purple));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-magnifying-glass"></i></div><div class="skill-name">Keyword Research</div><div class="skill-bar"><div class="skill-fill" data-width="90" style="background:linear-gradient(90deg,var(--cyan),var(--blue));"></div></div></div>
         </div>
       </div>
 
       <div>
         <div class="skill-category-title">Advertising & Growth</div>
         <div class="skills-grid">
-          <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-name">PPC Advertising</div><div class="skill-bar"><div class="skill-fill" data-width="88" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">🏷️</div><div class="skill-name">Deals & Promotions</div><div class="skill-bar"><div class="skill-fill" data-width="92" style="background:linear-gradient(90deg,var(--blue),var(--cyan));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">📈</div><div class="skill-name">Data Analysis</div><div class="skill-bar"><div class="skill-fill" data-width="85" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">💡</div><div class="skill-name">Growth Strategy</div><div class="skill-bar"><div class="skill-fill" data-width="91" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">🎯</div><div class="skill-name">Seller Onboarding</div><div class="skill-bar"><div class="skill-fill" data-width="95" style="background:linear-gradient(90deg,var(--violet),var(--cyan));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-megaphone"></i></div><div class="skill-name">PPC Advertising</div><div class="skill-bar"><div class="skill-fill" data-width="88" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-tag"></i></div><div class="skill-name">Deals & Promotions</div><div class="skill-bar"><div class="skill-fill" data-width="92" style="background:linear-gradient(90deg,var(--blue),var(--cyan));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-chart-bar"></i></div><div class="skill-name">Data Analysis</div><div class="skill-bar"><div class="skill-fill" data-width="85" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-trend-up"></i></div><div class="skill-name">Growth Strategy</div><div class="skill-bar"><div class="skill-fill" data-width="91" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-user-plus"></i></div><div class="skill-name">Seller Onboarding</div><div class="skill-bar"><div class="skill-fill" data-width="95" style="background:linear-gradient(90deg,var(--violet),var(--cyan));"></div></div></div>
         </div>
       </div>
 
       <div>
         <div class="skill-category-title">Operations & Management</div>
         <div class="skills-grid">
-          <div class="skill-card"><div class="skill-icon">📦</div><div class="skill-name">FBA Management</div><div class="skill-bar"><div class="skill-fill" data-width="90" style="background:linear-gradient(90deg,var(--blue),var(--cyan));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">👔</div><div class="skill-name">Account Management</div><div class="skill-bar"><div class="skill-fill" data-width="96" style="background:linear-gradient(90deg,var(--cyan),var(--violet));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">🛡️</div><div class="skill-name">Account Health</div><div class="skill-bar"><div class="skill-fill" data-width="93" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-name">Seller Central</div><div class="skill-bar"><div class="skill-fill" data-width="97" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">⚙️</div><div class="skill-name">Operational Handling</div><div class="skill-bar"><div class="skill-fill" data-width="87" style="background:linear-gradient(90deg,var(--violet),var(--cyan));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">📋</div><div class="skill-name">Inventory Planning</div><div class="skill-bar"><div class="skill-fill" data-width="84" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">💬</div><div class="skill-name">Communication</div><div class="skill-bar"><div class="skill-fill" data-width="93" style="background:linear-gradient(90deg,var(--cyan),var(--blue));"></div></div></div>
-          <div class="skill-card"><div class="skill-icon">🤖</div><div class="skill-name">AI Tools (Learning)</div><div class="skill-bar"><div class="skill-fill" data-width="72" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-package"></i></div><div class="skill-name">FBA Management</div><div class="skill-bar"><div class="skill-fill" data-width="90" style="background:linear-gradient(90deg,var(--blue),var(--cyan));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-briefcase"></i></div><div class="skill-name">Account Management</div><div class="skill-bar"><div class="skill-fill" data-width="96" style="background:linear-gradient(90deg,var(--cyan),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-shield-check"></i></div><div class="skill-name">Account Health</div><div class="skill-bar"><div class="skill-fill" data-width="93" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-globe"></i></div><div class="skill-name">Seller Central</div><div class="skill-bar"><div class="skill-fill" data-width="97" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-gear"></i></div><div class="skill-name">Operational Handling</div><div class="skill-bar"><div class="skill-fill" data-width="87" style="background:linear-gradient(90deg,var(--violet),var(--cyan));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-clipboard-text"></i></div><div class="skill-name">Inventory Planning</div><div class="skill-bar"><div class="skill-fill" data-width="84" style="background:linear-gradient(90deg,var(--blue),var(--violet));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-chat-circle"></i></div><div class="skill-name">Communication</div><div class="skill-bar"><div class="skill-fill" data-width="93" style="background:linear-gradient(90deg,var(--cyan),var(--blue));"></div></div></div>
+          <div class="skill-card"><div class="skill-icon"><i class="ph-duotone ph-robot"></i></div><div class="skill-name">AI Tools (Learning)</div><div class="skill-bar"><div class="skill-fill" data-width="72" style="background:linear-gradient(90deg,var(--violet),var(--blue));"></div></div></div>
         </div>
       </div>
 
@@ -664,10 +679,10 @@
     <div class="section-eyebrow"><span>Programs & Projects</span></div>
     <h2 class="section-title">Amazon <span>Programs</span></h2>
     <div class="projects-grid fade-in">
-      <div class="proj-card"><div class="proj-num">01</div><div class="proj-icon">🔄</div><div class="proj-title">Reactivation Program</div><p class="proj-desc">Reviving inactive and dormant seller accounts back to active status through targeted strategies, compliance fixes, and structured growth planning.</p><div class="proj-impact">⚡ Revived 100+ dormant accounts</div></div>
-      <div class="proj-card"><div class="proj-num">02</div><div class="proj-icon">🌱</div><div class="proj-title">NSS Program</div><p class="proj-desc">New Seller Success — Guiding newly onboarded Amazon sellers through their critical first months with hands-on support and growth tactics.</p><div class="proj-impact">🚀 Accelerated new seller launches</div></div>
-      <div class="proj-card"><div class="proj-num">03</div><div class="proj-icon">🚀</div><div class="proj-title">ASCEND Program</div><p class="proj-desc">Advisory program designed to help mid-tier sellers scale to the next level with strategic roadmaps, expert guidance, and performance benchmarking.</p><div class="proj-impact">📈 Scaled mid-tier seller revenues</div></div>
-      <div class="proj-card"><div class="proj-num">04</div><div class="proj-icon">💼</div><div class="proj-title">ABE Program</div><p class="proj-desc">Amazon Business Expert — In-house initiative delivering deep business insights and specialized solutions for high-value, enterprise-level accounts.</p><div class="proj-impact">🏆 High-value enterprise accounts</div></div>
+      <div class="proj-card"><div class="proj-num">01</div><div class="proj-icon"><i class="ph-duotone ph-arrows-clockwise"></i></div><div class="proj-title">Reactivation Program</div><p class="proj-desc">Reviving inactive and dormant seller accounts back to active status through targeted strategies, compliance fixes, and structured growth planning.</p><div class="proj-impact"><i class="ph ph-arrows-clockwise" style="font-size: 0.85rem;"></i> Revived 100+ dormant accounts</div></div>
+      <div class="proj-card"><div class="proj-num">02</div><div class="proj-icon"><i class="ph-duotone ph-rocket-launch"></i></div><div class="proj-title">NSS Program</div><p class="proj-desc">New Seller Success — Guiding newly onboarded Amazon sellers through their critical first months with hands-on support and growth tactics.</p><div class="proj-impact"><i class="ph ph-rocket-launch" style="font-size: 0.85rem;"></i> Accelerated new seller launches</div></div>
+      <div class="proj-card"><div class="proj-num">03</div><div class="proj-icon"><i class="ph-duotone ph-trend-up"></i></div><div class="proj-title">ASCEND Program</div><p class="proj-desc">Advisory program designed to help mid-tier sellers scale to the next level with strategic roadmaps, expert guidance, and performance benchmarking.</p><div class="proj-impact"><i class="ph ph-chart-line-up" style="font-size: 0.85rem;"></i> Scaled mid-tier seller revenues</div></div>
+      <div class="proj-card"><div class="proj-num">04</div><div class="proj-icon"><i class="ph-duotone ph-briefcase"></i></div><div class="proj-title">ABE Program</div><p class="proj-desc">Amazon Business Expert — In-house initiative delivering deep business insights and specialized solutions for high-value, enterprise-level accounts.</p><div class="proj-impact"><i class="ph ph-crown" style="font-size: 0.85rem;"></i> High-value enterprise accounts</div></div>
     </div>
   </div>
 </section>
@@ -679,13 +694,13 @@
   <div class="section-wrap">
     <div class="section-eyebrow"><span>Social Proof</span></div>
     <h2 class="section-title">What Sellers <span>Say About Me</span></h2>
-    <p style="color:var(--muted);margin-bottom:2rem;max-width:540px;font-size:0.9rem;line-height:1.7;">Real feedback from real sellers. Click any card to upload a screenshot — WhatsApp chats, emails, or any written appreciation.</p>
+    <p style="color:var(--muted);margin-bottom:2rem;max-width:540px;font-size:0.9rem;line-height:1.7;">Real feedback from real sellers. WhatsApp chats, emails, or any written appreciation.</p>
     <div class="testimonials-grid fade-in">
-      <div class="testi-card"><div class="testi-upload" onclick="triggerUpload(this)"><img src="" alt=""><div class="testi-upload-placeholder"><span>📸</span><p>Click to add screenshot</p></div><input type="file" accept="image/*" style="display:none" onchange="previewImage(this)"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
-      <div class="testi-card"><div class="testi-upload" onclick="triggerUpload(this)"><img src="" alt=""><div class="testi-upload-placeholder"><span>📸</span><p>Click to add screenshot</p></div><input type="file" accept="image/*" style="display:none" onchange="previewImage(this)"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
-      <div class="testi-card"><div class="testi-upload" onclick="triggerUpload(this)"><img src="" alt=""><div class="testi-upload-placeholder"><span>📸</span><p>Click to add screenshot</p></div><input type="file" accept="image/*" style="display:none" onchange="previewImage(this)"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
-      <div class="testi-card"><div class="testi-upload" onclick="triggerUpload(this)"><img src="" alt=""><div class="testi-upload-placeholder"><span>📸</span><p>Click to add screenshot</p></div><input type="file" accept="image/*" style="display:none" onchange="previewImage(this)"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
-      <div class="testi-card"><div class="testi-upload" onclick="triggerUpload(this)"><img src="" alt=""><div class="testi-upload-placeholder"><span>📸</span><p>Click to add screenshot</p></div><input type="file" accept="image/*" style="display:none" onchange="previewImage(this)"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload"><img src="" alt="Testimonial 1"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload"><img src="" alt="Testimonial 2"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload"><img src="" alt="Testimonial 3"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload"><img src="" alt="Testimonial 4"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload"><img src="" alt="Testimonial 5"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
     </div>
   </div>
 </section>
@@ -704,7 +719,7 @@
       <div class="learn-card"><div class="learn-num">04</div><div class="learn-content"><h4>Data-Driven Decisions</h4><p>Leveraging advanced analytics and seller data to craft smarter strategies and deliver consistently better results.</p></div></div>
     </div>
     <div class="learn-tagline fade-in">
-      <p>🔮 "Continuously upgrading my skills to stay ahead in the e-commerce space"</p>
+      <p>"Continuously upgrading my skills to stay ahead in the e-commerce space"</p>
     </div>
   </div>
 </section>
@@ -724,10 +739,8 @@
         <p class="yt-desc">From listing hacks to PPC tips, my content is rooted in real-world experience managing 55+ seller accounts.</p>
       </div>
       <div class="yt-card">
-        <div class="yt-logo-area" onclick="triggerYTLogo(this)">
+        <div class="yt-logo-area">
           <img src="" alt="Channel Logo" id="ytLogoImg">
-          <div class="yt-logo-placeholder"><span>🖼️</span><p>Click to add channel logo</p></div>
-          <input type="file" accept="image/*" id="ytLogoInput" style="display:none" onchange="previewYTLogo(this)">
         </div>
         <div class="yt-card-body">
           <div class="yt-channel">@JayantiiVerma</div>
@@ -750,15 +763,15 @@
       <div class="contact-info">
         <p class="contact-intro">Have a project in mind or want to discuss how I can help your Amazon business grow? I'd love to hear from you.</p>
         <a href="https://www.linkedin.com/in/jayanti-verma" target="_blank" class="contact-link">
-          <span class="contact-link-icon">💼</span>
+          <span class="contact-link-icon"><i class="ph-duotone ph-linkedin-logo"></i></span>
           <div><span class="contact-link-label">LinkedIn</span><small>linkedin.com/in/jayanti-verma</small></div>
         </a>
         <a href="https://www.youtube.com/@JayantiiVerma" target="_blank" class="contact-link">
-          <span class="contact-link-icon">📺</span>
+          <span class="contact-link-icon"><i class="ph-duotone ph-youtube-logo"></i></span>
           <div><span class="contact-link-label">YouTube</span><small>@JayantiiVerma</small></div>
         </a>
         <div class="contact-link" style="cursor:default;">
-          <span class="contact-link-icon">📍</span>
+          <span class="contact-link-icon"><i class="ph-duotone ph-map-pin"></i></span>
           <div><span class="contact-link-label">Location</span><small>India · Available Remotely</small></div>
         </div>
       </div>
@@ -769,15 +782,15 @@
           <input type="email" name="reply_to" id="emailInput" placeholder="your@email.com" required>
           <div id="emailError" style="display:none; color:#ef4444; font-size:0.75rem; margin-top:0.3rem;">⚠ Please enter a valid email address.</div>
         </div>
-        <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell me about your Amazon business or how I can help..."></textarea></div>
-        <button type="submit" class="btn-primary" style="width:100%;font-size:0.93rem;padding:0.92rem;justify-content:center;display:flex;align-items:center;gap:0.5rem;border-radius:10px;">Send Message 🚀</button>
+        <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell me about your online business or how I can help..."></textarea></div>
+        <button type="submit" class="btn-primary" style="width:100%;font-size:0.93rem;padding:0.92rem;justify-content:center;display:flex;align-items:center;gap:0.5rem;border-radius:10px;">Send Message</button>
         <div id="formStatus" style="margin-top:0.9rem; font-size:0.85rem; text-align:center; min-height:1.2rem;"></div>
       </form>
     </div>
 
     <!-- CV BANNER -->
     <div class="cv-banner fade-in" id="cv">
-      <h3>📄 Download My CV</h3>
+      <h3><i class="ph-duotone ph-file-arrow-down" style="color: #22d3ee; font-size: 1.4em; margin-right: 0.15em; vertical-align: -0.2em;"></i> Download My CV</h3>
       <p>Get a complete overview of my experience, skills, and Amazon expertise in one document.</p>
       <a href="data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyA5IDAgUiAvTWVkaWFCb3ggWyAwIDAgNTk1LjI3NTYgODQxLjg4OTggXSAvUGFyZW50IDggMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9QYWdlcyA4IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKNyAwIG9iago8PAovQXV0aG9yIChcKGFub255bW91c1wpKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYwNDEyMDEzNjA5KzAwJzAwJykgL0NyZWF0b3IgKFwodW5zcGVjaWZpZWRcKSkgL0tleXdvcmRzICgpIC9Nb2REYXRlIChEOjIwMjYwNDEyMDEzNjA5KzAwJzAwJykgL1Byb2R1Y2VyIChSZXBvcnRMYWIgUERGIExpYnJhcnkgLSBcKG9wZW5zb3VyY2VcKSkgCiAgL1N1YmplY3QgKFwodW5zcGVjaWZpZWRcKSkgL1RpdGxlIChcKGFub255bW91c1wpKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0NvdW50IDEgL0tpZHMgWyA1IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKOSAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAyOTgxCj4+CnN0cmVhbQpHYiEjXj4+czlJKDRQRkpvTWBvPSFNUyhNbzxjTHMvLj5wPGFrImBRMDkrYlMqW0ovQCJpPTVmci1tSWJBX0ExW2AoO2tkJEZdZjBxY3BvKVMwakpmcGUxOnA7KnJAXCJraWlCJCs3am4yNS0maE9HZFUoXVwnZ01VOiRmVylJRD9qJWUycDhFLEY0Q0hYISw3KCVBOm9pLDZebDRvRmksQD41OGchQVVOZ2k9aj4xPjwlaipISmxeRTNgcz1AUFJeYGUxblslWCRIck05KERHNFlAWk4mbCJTayImJykhOVRwa3JEVEtCdCxzNjBaXTlIRl1hLlJ1bHI4Z3AlZkxdNExBN1YmX0Z1OjhxTT42cDdCP3ApNnBMKWQpVl5RUGQwcSMoXTQlXyF0LFhLVj4zbjpZPVBbLTJmNlRBUWswL1FFaHNjYTlPS1UpOT0pXj1pQUVKLTZKKmExN24jLFlaVHUqX1NFIWg/U0toOiVFQWNdMFtUQS9KSkE4LTZecm5ZUjhEYkA5c2ooMSMmNSM2M10tS2UrUkdoPjFMKFMoVzQpNSs4O1Y3X0xLX0Q2UiJUL0dIZihoRktcV1ZxckRhJEpGb09IclIjJF9tLTtPYlNPbCNZYzhDY18mODlhQkRHNFl1N1VsVW4xUS5cJlVhNTIpXV9wWlA/YkdNcjEyPGwtU2orUTVwVVRXUy0hYSU/M25jNUFZWGZkMkgrKUlkIk8rYiQhPlxMXSReO09SO1YxQkg6WFRRMCtCSzlQcV1PNCczWl4ocXVuKkdHb0JmSS5VTl9dSmxBR2tRTVVqckMsZ2B0Vy1uOkshbV9hWFthaDcvMCFmL2Q8bSRyYmhmXDotXDtlQnBXNmwqT2xSNzlxUzluQylNSCcwPWRxcERqNDBaP2QoXCxBaFNgU2ZUJD0sQy8/JGJOamsucV06bU9LUl1RXzleaWByUiZFLzkzYUkwa2BUb09GQHIwSmtqLjopKlUual0wOF1uT1NaXj9yNCdtcUw5RGYxWkM5XSNAZjJiZGxITlg4NjUvXkk6JEg6PmlKPkVcTUlBZVFAZEVjcz5gRWBSdWFyNjVRbGRxdGclNXErXTVOal9PWiw4blMwaTM1OGJHVi1iW2FdcT11TVtGSS0oQ1coNSdtUWJRYzFuKW5lMkk5QUJZNyYtMTRzMzZeOCtzJEkrMDY+cWI4aT5ROlxxcj89ck8yRzFIO01CYSVVTVkxPXUlP29wdUpWXi4kUDBIR282L2MoNnVPPj4rQDIlbjpIJHEuWTwoLVVxPyFoMWEraUlCLi1rRC10KF8vS2kwV0osQE0yZFMoJG4qMG0zRkJTcDpIRlllJlpdMkxMQFlwZC8vcTREbmVsdW47bWpQMjJcKEVsJSo3b04mZyRXbE9vWyxRI3JBcDglWV5LK3AnQ0VUMyJWYTJFR2BIbGFpLWViPDs8cjopZUQrRlxDN1JjJE91WiI2VycuJm8zZFdANStVPjliQEwrOittUjtlVl5bKXNdTiVdWipobiJaRDQwYCZKMmJfUnFCRC9zL2RnLk1ALic4LXQjNDAhdV4wXytoNj1xdSdZJTkvWzZHbUd0OlAvdCciVFoiTlljKlpiRSY1T2wpcFtJJkF0LlM2PlszK2YnVFkrVllvJGRMcUhjaCEzcmpMNzA9ZUlPS1BoSHFvMXUsdGpmJDwuVUMoVXUpX3FfQS9FVGN1PSVtWVgrITYkVTQuMW5CJ2AsOS1YVGJBOiVhLHVWWjFNKTNYMz9LNE1SRmY5I1NabCdeNHBjcmdET0hfSTdLN0JAWzxsRjo/ZlsybnUrLC9BTDU/UkQnRzppUiRhYUhHUmBiaW1KKyhjXUA+K0siajxjSm85JWMkOGtkczs/Y1wrO1w3UVUxT2cpJUNhYEB1K01IUmg7XnRPYlBIXzlLKlomM1pKJ2c4Oj0+SDInKE5sQ1hmODxtY2A4NlVbaytOcDBIblI3TEE3Si4zLCVORFVJX3VtcUBmPVU2cz0uSzptLTItWnUzRlRHTk1COF42aStbXVhyO3QzYVBjIUotQWgmQV5rSlwrTlQ3ZTtATUd1R04zRWhrLDAtbk9QX1VCcmEsPm5EcE5rYUVONkJmIWxmPEBDLDJCMT0wUUxUKCY7b2chV0JbQjZOQCEhb2BzL21RYUBdQE1YLXRmSmMnUExbS0xkX3IlL15oNHMmcFtmKEE4czZeRW1cMSNKO1dRTlhqb0dGP24tLU9wJiQySWhAUkVdZm88ZW4taT8tWF8vWFMicXUhJitiI15mW20mZSYvPypmMU1PMzZgbF90TTolWUh0bkVQI3V1JHMsdWFpSGpbYGBxXTxfXVhbWlxTNyRoNE9ROygxIy49XDs8NEttL0NXWkA0WjY3PTdfJFYpImk2MypVT3FyXChyKEkuP0siYl1IUjdlIjVUKGU7S2dnOUZfOlw1OGhNIVJhZ3InRkpENlh0Jz89YlVUKyMiT0cmcEo2Q3UtKTY5Q1xYYmlSSVFEW15FWHAqOk9bb2pAWShoX2kjRiJ1SikxZmVmSClDL2xhKj1DPj88VFtRMlgpcTY+V1EqZV9SLjIjUz9hbWZcIjJiVGhba2xjVGhlTkEvRjBiWFBwYTxuIkZgPzIlPWJHXlJObzwiQ180LzJlWWF0SWdScVNkJWFTITInQ29eLVdSXihySjw+biMqVWdvbF9WQDtdPTw0TTY4SGVyIi8zTG48JmMqQ1VJUCQsZmYxQVtwZTNda2wuMipGc1puIURhTSNkOzRkW008dDNrWnFLOE1NIltFaXNPQzZKTk1tYV01W3VyOl0sPDJNSCw8WkRERz9pOzclJ2VKVERYOitaNTZwQkBZcD9RWnNfJEpKQnFHVm5SJDVyRDNha2ErTkA4SVYzUWJVUExXUG4zbiEyJk43SixWInRfU0oqQSwvMl9GbCgjLjg+c0E2RDw2Y2RqZmZRMUk/UGhBXUstWUFZKUMqYjIuT2c1NzchPU1bQFVONmJJIWgrIzRyTT1xVktmVClsJj1GSC80W3EjcCI/QC0oIlBQO1ghWE8mZ1FPTSk7Py9gMUZLPGM5UnRPMCRKb1tGJForIWF0ckhpVVFIKkhsczYjZElBLUpCUihjSkdeZjhxIShGaSdGaGZkbFpJSCpQZ0kicDZYdC8yOmE5UjVKS0Voc0xSUDUhPG9XOzs+YyFabCQ0WDA7LDIlU3RRbER1JkRPNlsscFs7SjhSTldFQ0NbM2g/PV0xXiZMbTE+LFBYdGEuRSVVP2REcDUmSC1tSWcjOVlcRixBM2RrNSNyI2cyQVQsKUthVE0mOE9aJmAlPm9UPyY0XFBWLD9uOCNzUFpGYkxOSDZEPCtrJSZrV0gnKW1tQ1pqM15uRyw+OHB1PDsyPCNzNS9YLnJoS1koJnRwZTpmQSUsJkAyX1dGJypvZSpqQiNAJFlPJSgnPDZZcjIvP1ddU0ktTWxVZGVYSThdWkJXQTs1PVM9bTRzVGw2ODBCYWVHak11T08kLzdaZytGJEg2PSlZZT9fcy1gZUM0bCEnQVRKOXQsUDtwMClmKVBsMCtsJmZAW2tAYCNOUEtjMzdgNTBYS0RyaktrXUA5QSEnY0xxU0BcTkNCJ01GWiI1WV9UZFM1W2stUSYnXkIzZ15NPGlHOkRrdVtPMkBwamJdayxkYl0sZSVVLUZQciE3bExYQXVaWSpaLVwiNiZESFdsPnNrNFs2aFVGL0xCZmE/TC5OaDBUVVRzIyNjOCotYTBiYTZoJiU2SDhVRF1MNUs/blVzP19uWDZkKXBDJigiUD8nQ3IwaCNfbWdjY0RbIV9XVks1SDREUTIrXyUlUXEvdU5vKTs1a1BoZjxgZF9XXXM0LGxbIT9vLikwb0o9bEM9InUoVjxbRDhTcS1XZSFCRiRUS2g0Q1FLdDJZQ3I5OFJnbWxQQnFyanFsTys9UF1fbE1wXUhbZi1NUWRKKkF+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDEwCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTEyIDAwMDAwIG4gCjAwMDAwMDAyMTkgMDAwMDAgbiAKMDAwMDAwMDMzMSAwMDAwMCBuIAowMDAwMDAwNDQ2IDAwMDAwIG4gCjAwMDAwMDA2NDkgMDAwMDAgbiAKMDAwMDAwMDcxNyAwMDAwMCBuIAowMDAwMDAwOTk3IDAwMDAwIG4gCjAwMDAwMDEwNTYgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8NzNhMDlmYjUzMzJmM2YyNzVhMDFiYzIyYTE0Y2FjMjg+PDczYTA5ZmI1MzMyZjNmMjc1YTAxYmMyMmExNGNhYzI4Pl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA3IDAgUgovUm9vdCA2IDAgUgovU2l6ZSAxMAo+PgpzdGFydHhyZWYKNDEyOAolJUVPRgo=" download="Jayanti_Verma_Resume.pdf" class="btn-cv">Download CV / Resume</a>
     </div>
@@ -788,7 +801,7 @@
 <footer>
   <p>Crafted with ❤️ by <span>Jayanti Verma</span></p>
   <p class="footer-tagline">Amazon Account Manager · E-commerce Growth Specialist · AI Enthusiast</p>
-  <p class="footer-copy">© 2025 All rights reserved.</p>
+  <p class="footer-copy">© 2026 All rights reserved.</p>
 </footer>
 
 <!-- EmailJS SDK (for local testing only) -->
@@ -855,36 +868,9 @@
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   document.querySelector('#hero .fade-in').classList.add('visible');
 
-  // ── Testimonial image upload
-  function triggerUpload(card) { card.querySelector('input[type="file"]').click(); }
-  function previewImage(input) {
-    if (input.files && input.files[0]) {
-      const reader = new FileReader();
-      reader.onload = e => {
-        const wrap = input.closest('.testi-upload');
-        const img = wrap.querySelector('img');
-        img.src = e.target.result; img.style.display = 'block';
-        const ph = wrap.querySelector('.testi-upload-placeholder');
-        if (ph) ph.style.display = 'none';
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
+  // ── Testimonial images are now static. Edit the src attribute in HTML to update images.
 
-  // ── YouTube logo upload
-  function triggerYTLogo(area) { document.getElementById('ytLogoInput').click(); }
-  function previewYTLogo(input) {
-    if (input.files && input.files[0]) {
-      const reader = new FileReader();
-      reader.onload = e => {
-        const img = document.getElementById('ytLogoImg');
-        img.src = e.target.result; img.style.display = 'block';
-        const ph = document.querySelector('.yt-logo-placeholder');
-        if (ph) ph.style.display = 'none';
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
+  // ── YouTube channel logo is now static. Edit the src attribute in HTML to update the logo.
 
   // ── CV download is live (PDF embedded as base64)
 
