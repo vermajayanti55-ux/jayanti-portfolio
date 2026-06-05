@@ -8,12 +8,20 @@
     {
       "src": "jayanti-verma-portfolio-FINAL.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/send-email",
       "dest": "/api/send-email.js"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
     },
     {
       "src": "/(.*)",
