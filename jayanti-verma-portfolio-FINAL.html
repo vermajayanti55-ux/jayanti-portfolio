@@ -358,6 +358,7 @@
   .testi-upload-placeholder { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
   .testi-upload-placeholder span { font-size: 1.6rem; opacity: 0.3; }
   .testi-upload-placeholder p { font-size: 0.72rem; color: var(--muted); opacity: 0.5; }
+  .testi-content { font-size: 0.85rem; line-height: 1.6; color: var(--text); text-align: center; padding: 0.5rem; }
   .testi-name { font-weight: 700; font-size: 0.88rem; margin-top: 1rem; color: var(--text); }
   .testi-role { font-size: 0.73rem; color: var(--cyan); margin-top: 0.15rem; }
   .testi-stars { color: var(--amber); font-size: 0.9rem; margin-top: 0.25rem; letter-spacing: 1px; }
@@ -393,21 +394,21 @@
   .yt-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 0.9rem; color: var(--text); }
   .yt-desc { color: var(--muted); line-height: 1.75; margin-bottom: 0.9rem; font-size: 0.9rem; }
   .yt-card {
-    flex: 0 0 340px;
+    flex: 0 0 320px;
     background: var(--card-bg); border: 1px solid rgba(245,158,11,0.13);
     border-radius: 18px; overflow: hidden; transition: all 0.3s;
     display: flex; flex-direction: column;
   }
   .yt-card:hover { border-color: rgba(245,158,11,0.32); box-shadow: 0 10px 26px rgba(245,158,11,0.07); }
   .yt-logo-area {
-    width: 100%; height: 200px; background: rgba(255,255,255,0.02);
+    width: 100%; height: 340px; background: rgba(255,255,255,0.02);
     border-bottom: 1px solid rgba(255,255,255,0.05);
     display: flex; align-items: center; justify-content: center;
     overflow: hidden; cursor: pointer; transition: background 0.3s;
     border-radius: 0; position: relative;
   }
   .yt-logo-area:hover { background: rgba(139,92,246,0.04); }
-  .yt-logo-area img { width: 100%; height: 100%; object-fit: cover; display: none; }
+  .yt-logo-area img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .yt-logo-placeholder { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
   .yt-logo-placeholder span { font-size: 1.6rem; opacity: 0.25; }
   .yt-logo-placeholder p { font-size: 0.7rem; color: var(--muted); opacity: 0.4; }
@@ -696,11 +697,9 @@
     <h2 class="section-title">What Sellers <span>Say About Me</span></h2>
     <p style="color:var(--muted);margin-bottom:2rem;max-width:540px;font-size:0.9rem;line-height:1.7;">Real feedback from real sellers. WhatsApp chats, emails, or any written appreciation.</p>
     <div class="testimonials-grid fade-in">
-      <div class="testi-card"><div class="testi-upload"><img src="" alt="Testimonial 1"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
-      <div class="testi-card"><div class="testi-upload"><img src="" alt="Testimonial 2"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
-      <div class="testi-card"><div class="testi-upload"><img src="" alt="Testimonial 3"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
-      <div class="testi-card"><div class="testi-upload"><img src="" alt="Testimonial 4"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
-      <div class="testi-card"><div class="testi-upload"><img src="" alt="Testimonial 5"></div><div class="testi-name">Seller Name</div><div class="testi-role">Amazon Seller</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload"><div class="testi-content">Very good experience with Jayanti Verma. She handled our account professionally and always provided timely support. Her dedication and attention to detail helped us manage our seller account smoothly. Highly satisfied with her services</div></div><div class="testi-name">Akshar Tabla Mart</div><div class="testi-role">Traditional Musical Instruments</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload"><div class="testi-content">We had a great experience working with Jayanti Verma. She helped us with both account management and product design coordination, ensuring everything was handled efficiently. Her support, professionalism, and prompt communication made the entire process smooth and hassle-free.</div></div><div class="testi-name">Geo Organix</div><div class="testi-role">Beauty Products</div><div class="testi-stars">★★★★★</div></div>
+      <div class="testi-card"><div class="testi-upload"><div class="testi-content">We had a very positive experience with the account management services provided. The advertising campaigns were optimized effectively, helping improve visibility and sales performance. Valuable support was also provided in resolving settlement-related issues and improving bank settlements. Highly professional and reliable service.</div></div><div class="testi-name">Eco Sense</div><div class="testi-role">Bath Towels</div><div class="testi-stars">★★★★★</div></div>
     </div>
   </div>
 </section>
@@ -740,7 +739,7 @@
       </div>
       <div class="yt-card">
         <div class="yt-logo-area">
-          <img src="" alt="Channel Logo" id="ytLogoImg">
+          <img src="./assets/Jayanti_Verma_YT_Featured.png" alt="Channel Logo" id="ytLogoImg">
         </div>
         <div class="yt-card-body">
           <div class="yt-channel">@JayantiiVerma</div>
